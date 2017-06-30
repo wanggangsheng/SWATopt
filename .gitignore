@@ -1,0 +1,9 @@
+
+
+userio/aSCEOUT
+dist
+.DS_Store
+build
+swatopt
+*.mod
+.dep.inc
