@@ -1,0 +1,57 @@
+!!nsub    nbyr        		  iyear0    iprint(0-month, 1-day, 2-year)	        iModel(0-SWAT,1-SWAT_OPT)
+55		  29				  1985		0									    0
+!!npar	  nyear_spinup		  itype_opt icode_sub icode_res nsub_opt  iOBJ	    wOBJ1	  wOBJ2     wOBJ3
+39		  1					  11   	    28         9999     3 		  0 	    1.00      1.00      1.00 
+!!isub_opt:                           
+17 	24 	28
+!!FILE WITH OBSERVATIONS:
+mv01d_row_data.txt      
+!!SCE PARAMETERS:
+!!maxn 	kstop 	pcento  	ngs 	nSCE 	ideflt
+10000   10		0.0001    	2   	1    	0
+!!npg	nps  	nspl 		mings 	iniflg 	ifprint  !!IF ideflt = 0, the next line won't be read
+13    	7   	13    		2    	1    	0
+!!SWAT PARAMETERS:
+ID      NAME      VARIATION     OPT     MIN     MAX      X0    XMIN    XMAX
+1       CN2                1       1      35      98      85      35      98
+2       ESCO               1       1    0.01       1    0.95    0.01       1
+3       EPCO               1       1    0.01       1       1    0.01       1
+4       OV_N               1       1    0.01     0.6     0.1    0.01     0.6
+5       CH_N2              1       1    0.01     0.5   0.014    0.01     0.5
+6       CH_K2              1       1   0.001     150   0.001   0.001     150
+7       ALPHA_BF           1       1   0.001       1   0.048   0.001       1
+8       GW_DELAY           1       1  0.0001     500      31  0.0001     500
+9       RCHRG_DP           1       1  0.0001       1    0.05  0.0001       1
+10      GW_REVAP           1       1    0.02     0.2    0.02    0.02     0.2
+11      GW_SPYLD           1       1  0.0001     0.4   0.003  0.0001     0.4
+12      SOL_AWC            1       1    0.01     0.4     0.2    0.01     0.4
+13      SOL_K              1       1    0.01     100      10    0.01     100
+14      SURLAG             1       1     0.5      12       4     0.5      12
+15      SPCON              1       1  0.0001    0.01  0.0001  0.0001    0.01
+16      SPEXP              1       1       1       2       1       1       2
+17      PRF                1       1   0.001       2       1   0.001       2
+18      ADJ_PKR            1       1     0.5       2       1     0.5       2
+19      CH_COV             1       1   0.001       1   0.001   0.001       1
+20      CH_EROD            1       1   0.001       1   0.001   0.001       1
+21      USLE_K             1       1    0.01    0.65    0.28    0.01    0.65
+22      BIOMIX             1       1    0.01       1     0.2    0.01       1
+23      RSDCO              1       1    0.02     0.1    0.05    0.02     0.1
+24      NPERCO             1       1   0.001       1     0.2   0.001       1
+25      N_UPDIS            1       1   0.001     100      20   0.001     100
+26      NSETLR             1       1       1      15     5.5       1      15
+27      SHALLST_N          1       1  0.0001    1000  0.0001  0.0001    1000
+28      ERORGN             1       1   0.001       5   0.001   0.001       5
+29      SOL_ORGN           1       1    0.01      50    0.01    0.01      50
+30      SOL_NO3            1       1    0.01      50    0.01    0.01      50
+31      PPERCO             1       1      10    17.5      10      10    17.5
+32      PHOSKD             1       1     100     200     175     100     200
+33      PSP                1       1    0.01     0.7     0.4    0.01     0.7
+34      PSETLR             1       1       2      20      10       2      20
+35      BC4                1       1    0.01     0.7    0.35    0.01     0.7
+36      RS5                1       1   0.001     0.1    0.05   0.001     0.1
+37      ERORGP             1       1   0.001       5   0.001   0.001       5
+38      SOL_ORGP           1       1    0.01      50    0.01    0.01      50
+39      SOL_SOLP           1       1    0.01      50       5    0.01      50
+       CN2      ESCO      EPCO      OV_N     CH_N2     CH_K2  ALPHA_BF  GW_DELAY  RCHRG_DP  GW_REVAP  GW_SPYLD   SOL_AWC     SOL_K    SURLAG     SPCON     SPEXP       PRF   ADJ_PKR    CH_COV   CH_EROD    USLE_K    BIOMIX     RSDCO    NPERCO   N_UPDIS    NSETLR SHALLST_N    ERORGN  SOL_ORGN   SOL_NO3    PPERCO    PHOSKD       PSP    PSETLR       BC4       RS5    ERORGP  SOL_ORGP  SOL_SOLP        <>       OBF
+   51.2240    0.8340    0.5800    0.3040    0.1810   63.1640    0.2570   49.6920    0.4030    0.1250    0.0780    0.1480   13.8400    2.5260    0.0001    1.0000    1.0000    1.0000    0.0010    0.0010    0.2800    0.2000    0.0500    0.2000   20.0000    5.5000    0.0001    0.0010    0.0100    0.0100   10.0000  175.0000    0.4000   10.0000    0.3500    0.0500    0.0010    0.0100    5.0000        <>     0.147     0.188     0.105
+85.000	0.950	1.000	0.100	4.000	0.014	0.000	0.110	50.000	0.048	31.000	0.050	0.020	0.003	0.600

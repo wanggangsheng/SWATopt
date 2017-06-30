@@ -1,0 +1,2564 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+DO NOT ALTER OR REMOVE COPYRIGHT NOTICES OR THIS HEADER.
+
+Copyright (c) 2009, 2016 Oracle and/or its affiliates. All rights reserved.
+
+Oracle and Java are registered trademarks of Oracle and/or its affiliates.
+Other names may be trademarks of their respective owners.
+
+The contents of this file are subject to the terms of either the GNU
+General Public License Version 2 only ("GPL") or the Common
+Development and Distribution License("CDDL") (collectively, the
+"License"). You may not use this file except in compliance with the
+License. You can obtain a copy of the License at
+http://www.netbeans.org/cddl-gplv2.html
+or nbbuild/licenses/CDDL-GPL-2-CP. See the License for the
+specific language governing permissions and limitations under the
+License.  When distributing the software, include this License Header
+Notice in each file and include the License file at
+nbbuild/licenses/CDDL-GPL-2-CP.  Oracle designates this
+particular file as subject to the "Classpath" exception as provided
+by Oracle in the GPL Version 2 section of the License file that
+accompanied this code. If applicable, add the following below the
+License Header, with the fields enclosed by brackets [] replaced by
+your own identifying information:
+"Portions Copyrighted [year] [name of copyright owner]"
+
+If you wish your version of this file to be governed by only the CDDL
+or only the GPL Version 2, indicate your decision by adding
+"[Contributor] elects to include this software in this distribution
+under the [CDDL or GPL Version 2] license." If you do not indicate a
+single choice of license, a recipient has the option to distribute
+your version of this file under either the CDDL, the GPL Version 2 or
+to extend the choice of license to its licensees as provided above.
+However, if you add GPL Version 2 code and therefore, elected the GPL
+Version 2 license, then the option applies only if the new code is
+made subject to such option by the copyright holder.
+
+Contributor(s):
+-->
+<configurationDescriptor version="100">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="swatsrc" displayName="swatsrc" projectFiles="true">
+        <itemPath>swatsrc/MAIN.f</itemPath>
+        <itemPath>swatsrc/MODparm.f</itemPath>
+        <itemPath>swatsrc/MODsce.f</itemPath>
+        <itemPath>swatsrc/SCEIN.f</itemPath>
+        <itemPath>swatsrc/SCEUA.f</itemPath>
+        <itemPath>swatsrc/SCEfunctn.f</itemPath>
+        <itemPath>swatsrc/USERfunc.f</itemPath>
+        <itemPath>swatsrc/addh.f</itemPath>
+        <itemPath>swatsrc/albedo.f</itemPath>
+        <itemPath>swatsrc/allocate_parms.f</itemPath>
+        <itemPath>swatsrc/alph.f</itemPath>
+        <itemPath>swatsrc/anfert.f</itemPath>
+        <itemPath>swatsrc/apex_day.f</itemPath>
+        <itemPath>swatsrc/apply.f</itemPath>
+        <itemPath>swatsrc/ascrv.f</itemPath>
+        <itemPath>swatsrc/atri.f</itemPath>
+        <itemPath>swatsrc/aunif.f</itemPath>
+        <itemPath>swatsrc/autoirr.f</itemPath>
+        <itemPath>swatsrc/aveval.f</itemPath>
+        <itemPath>swatsrc/bacteria.f</itemPath>
+        <itemPath>swatsrc/biofilm.f</itemPath>
+        <itemPath>swatsrc/biozone.f</itemPath>
+        <itemPath>swatsrc/bmp_det_pond.f</itemPath>
+        <itemPath>swatsrc/bmp_ri_pond.f</itemPath>
+        <itemPath>swatsrc/bmp_sand_filter.f</itemPath>
+        <itemPath>swatsrc/bmp_sed_pond.f</itemPath>
+        <itemPath>swatsrc/bmp_wet_pond.f</itemPath>
+        <itemPath>swatsrc/bmpfixed.f</itemPath>
+        <itemPath>swatsrc/bmpinit.f</itemPath>
+        <itemPath>swatsrc/buffer.f</itemPath>
+        <itemPath>swatsrc/burnop.f</itemPath>
+        <itemPath>swatsrc/canopyint.f</itemPath>
+        <itemPath>swatsrc/caps.f</itemPath>
+        <itemPath>swatsrc/carbon_new.f</itemPath>
+        <itemPath>swatsrc/carbon_zhang2.f90</itemPath>
+        <itemPath>swatsrc/cfactor.f</itemPath>
+        <itemPath>swatsrc/chkcst.f</itemPath>
+        <itemPath>swatsrc/clgen.f</itemPath>
+        <itemPath>swatsrc/clicon.f</itemPath>
+        <itemPath>swatsrc/command.f</itemPath>
+        <itemPath>swatsrc/conapply.f</itemPath>
+        <itemPath>swatsrc/confert.f</itemPath>
+        <itemPath>swatsrc/crackflow.f</itemPath>
+        <itemPath>swatsrc/crackvol.f</itemPath>
+        <itemPath>swatsrc/curno.f</itemPath>
+        <itemPath>swatsrc/dailycn.f</itemPath>
+        <itemPath>swatsrc/decay.f</itemPath>
+        <itemPath>swatsrc/depstor.f</itemPath>
+        <itemPath>swatsrc/distrib_bmps.f</itemPath>
+        <itemPath>swatsrc/dormant.f</itemPath>
+        <itemPath>swatsrc/drains.f</itemPath>
+        <itemPath>swatsrc/dstn1.f</itemPath>
+        <itemPath>swatsrc/ee.f</itemPath>
+        <itemPath>swatsrc/eiusle.f</itemPath>
+        <itemPath>swatsrc/enrsb.f</itemPath>
+        <itemPath>swatsrc/erfc.f</itemPath>
+        <itemPath>swatsrc/estimate_ksat.f</itemPath>
+        <itemPath>swatsrc/etact.f</itemPath>
+        <itemPath>swatsrc/etpot.f</itemPath>
+        <itemPath>swatsrc/expo.f</itemPath>
+        <itemPath>swatsrc/fert.f</itemPath>
+        <itemPath>swatsrc/filter.f</itemPath>
+        <itemPath>swatsrc/filtw.f</itemPath>
+        <itemPath>swatsrc/finalbal.f</itemPath>
+        <itemPath>swatsrc/gcycl.f</itemPath>
+        <itemPath>swatsrc/getallo.f</itemPath>
+        <itemPath>swatsrc/grass_wway.f</itemPath>
+        <itemPath>swatsrc/graze.f</itemPath>
+        <itemPath>swatsrc/grow.f</itemPath>
+        <itemPath>swatsrc/gw_no3.f</itemPath>
+        <itemPath>swatsrc/gwmod.f</itemPath>
+        <itemPath>swatsrc/gwmod_deep.f</itemPath>
+        <itemPath>swatsrc/gwnutr.f</itemPath>
+        <itemPath>swatsrc/h2omgt_init.f</itemPath>
+        <itemPath>swatsrc/harvestop.f</itemPath>
+        <itemPath>swatsrc/harvgrainop.f</itemPath>
+        <itemPath>swatsrc/harvkillop.f</itemPath>
+        <itemPath>swatsrc/header.f</itemPath>
+        <itemPath>swatsrc/headout.f</itemPath>
+        <itemPath>swatsrc/hhnoqual.f</itemPath>
+        <itemPath>swatsrc/hhwatqual.f</itemPath>
+        <itemPath>swatsrc/hmeas.f</itemPath>
+        <itemPath>swatsrc/hruaa.f</itemPath>
+        <itemPath>swatsrc/hruallo.f</itemPath>
+        <itemPath>swatsrc/hruday.f90</itemPath>
+        <itemPath>swatsrc/hrumon.f</itemPath>
+        <itemPath>swatsrc/hrupond.f</itemPath>
+        <itemPath>swatsrc/hrupondhr.f</itemPath>
+        <itemPath>swatsrc/hruyr.f</itemPath>
+        <itemPath>swatsrc/hydroinit.f</itemPath>
+        <itemPath>swatsrc/icl.f</itemPath>
+        <itemPath>swatsrc/impnd_init.f</itemPath>
+        <itemPath>swatsrc/impndaa.f</itemPath>
+        <itemPath>swatsrc/impndday.f</itemPath>
+        <itemPath>swatsrc/impndmon.f</itemPath>
+        <itemPath>swatsrc/impndyr.f</itemPath>
+        <itemPath>swatsrc/irr_rch.f</itemPath>
+        <itemPath>swatsrc/irr_res.f</itemPath>
+        <itemPath>swatsrc/irrigate.f</itemPath>
+        <itemPath>swatsrc/irrsub.f</itemPath>
+        <itemPath>swatsrc/jdt.f</itemPath>
+        <itemPath>swatsrc/killop.f</itemPath>
+        <itemPath>swatsrc/lakeq.f</itemPath>
+        <itemPath>swatsrc/latsed.f</itemPath>
+        <itemPath>swatsrc/layersplit.f</itemPath>
+        <itemPath>swatsrc/lwqdef.f</itemPath>
+        <itemPath>swatsrc/nCsed_leach.f90</itemPath>
+        <itemPath>swatsrc/ndenit.f</itemPath>
+        <itemPath>swatsrc/newtillmix.f</itemPath>
+        <itemPath>swatsrc/nfix.f</itemPath>
+        <itemPath>swatsrc/nitvol.f</itemPath>
+        <itemPath>swatsrc/nlch.f</itemPath>
+        <itemPath>swatsrc/nminrl.f</itemPath>
+        <itemPath>swatsrc/noqual.f</itemPath>
+        <itemPath>swatsrc/npup.f</itemPath>
+        <itemPath>swatsrc/nrain.f</itemPath>
+        <itemPath>swatsrc/nup.f</itemPath>
+        <itemPath>swatsrc/nuts.f</itemPath>
+        <itemPath>swatsrc/openwth.f</itemPath>
+        <itemPath>swatsrc/operatn.f</itemPath>
+        <itemPath>swatsrc/orgn.f</itemPath>
+        <itemPath>swatsrc/orgncswat.f</itemPath>
+        <itemPath>swatsrc/origtile.f</itemPath>
+        <itemPath>swatsrc/ovr_sed.f</itemPath>
+        <itemPath>swatsrc/percmacro.f</itemPath>
+        <itemPath>swatsrc/percmain.f</itemPath>
+        <itemPath>swatsrc/percmicro.f</itemPath>
+        <itemPath>swatsrc/pestlch.f</itemPath>
+        <itemPath>swatsrc/pestw.f</itemPath>
+        <itemPath>swatsrc/pesty.f</itemPath>
+        <itemPath>swatsrc/pgen.f</itemPath>
+        <itemPath>swatsrc/pgenhr.f</itemPath>
+        <itemPath>swatsrc/pkq.f</itemPath>
+        <itemPath>swatsrc/plantmod.f</itemPath>
+        <itemPath>swatsrc/plantop.f</itemPath>
+        <itemPath>swatsrc/pmeas.f</itemPath>
+        <itemPath>swatsrc/pminrl.f</itemPath>
+        <itemPath>swatsrc/pminrl2.f</itemPath>
+        <itemPath>swatsrc/pond.f</itemPath>
+        <itemPath>swatsrc/pondhr.f</itemPath>
+        <itemPath>swatsrc/pothole.f</itemPath>
+        <itemPath>swatsrc/potholehr.f</itemPath>
+        <itemPath>swatsrc/print_hyd.f</itemPath>
+        <itemPath>swatsrc/psed.f</itemPath>
+        <itemPath>swatsrc/qman.f</itemPath>
+        <itemPath>swatsrc/ran1.f</itemPath>
+        <itemPath>swatsrc/rchaa.f</itemPath>
+        <itemPath>swatsrc/rchday.f</itemPath>
+        <itemPath>swatsrc/rchinit.f</itemPath>
+        <itemPath>swatsrc/rchmon.f</itemPath>
+        <itemPath>swatsrc/rchuse.f</itemPath>
+        <itemPath>swatsrc/rchyr.f</itemPath>
+        <itemPath>swatsrc/readatmodep.f</itemPath>
+        <itemPath>swatsrc/readbsn.f</itemPath>
+        <itemPath>swatsrc/readchm.f</itemPath>
+        <itemPath>swatsrc/readcnst.f</itemPath>
+        <itemPath>swatsrc/readfcst.f</itemPath>
+        <itemPath>swatsrc/readfert.f</itemPath>
+        <itemPath>swatsrc/readfig.f</itemPath>
+        <itemPath>swatsrc/readfile.f</itemPath>
+        <itemPath>swatsrc/readgw.f</itemPath>
+        <itemPath>swatsrc/readhru.f</itemPath>
+        <itemPath>swatsrc/readinpt.f</itemPath>
+        <itemPath>swatsrc/readlup.f</itemPath>
+        <itemPath>swatsrc/readlwq.f</itemPath>
+        <itemPath>swatsrc/readmgt.f</itemPath>
+        <itemPath>swatsrc/readmon.f</itemPath>
+        <itemPath>swatsrc/readops.f</itemPath>
+        <itemPath>swatsrc/readpest.f</itemPath>
+        <itemPath>swatsrc/readplant.f</itemPath>
+        <itemPath>swatsrc/readpnd.f</itemPath>
+        <itemPath>swatsrc/readres.f</itemPath>
+        <itemPath>swatsrc/readrte.f</itemPath>
+        <itemPath>swatsrc/readru.f</itemPath>
+        <itemPath>swatsrc/readsdr.f</itemPath>
+        <itemPath>swatsrc/readsepticbz.f</itemPath>
+        <itemPath>swatsrc/readseptwq.f</itemPath>
+        <itemPath>swatsrc/readsno.f</itemPath>
+        <itemPath>swatsrc/readsol.f</itemPath>
+        <itemPath>swatsrc/readsub.f</itemPath>
+        <itemPath>swatsrc/readswq.f</itemPath>
+        <itemPath>swatsrc/readtill.f</itemPath>
+        <itemPath>swatsrc/readurban.f</itemPath>
+        <itemPath>swatsrc/readwgn.f</itemPath>
+        <itemPath>swatsrc/readwus.f</itemPath>
+        <itemPath>swatsrc/readwwq.f</itemPath>
+        <itemPath>swatsrc/readyr.f</itemPath>
+        <itemPath>swatsrc/reccnst.f</itemPath>
+        <itemPath>swatsrc/recday.f</itemPath>
+        <itemPath>swatsrc/rechour.f</itemPath>
+        <itemPath>swatsrc/recmon.f</itemPath>
+        <itemPath>swatsrc/recyear.f</itemPath>
+        <itemPath>swatsrc/regres.f</itemPath>
+        <itemPath>swatsrc/res.f</itemPath>
+        <itemPath>swatsrc/resbact.f</itemPath>
+        <itemPath>swatsrc/resetlu.f</itemPath>
+        <itemPath>swatsrc/reshr.f</itemPath>
+        <itemPath>swatsrc/resinit.f</itemPath>
+        <itemPath>swatsrc/resnut.f</itemPath>
+        <itemPath>swatsrc/rewind_init.f</itemPath>
+        <itemPath>swatsrc/rhgen.f</itemPath>
+        <itemPath>swatsrc/rootfr.f</itemPath>
+        <itemPath>swatsrc/route.f</itemPath>
+        <itemPath>swatsrc/routels.f</itemPath>
+        <itemPath>swatsrc/routeunit.f</itemPath>
+        <itemPath>swatsrc/routres.f</itemPath>
+        <itemPath>swatsrc/rsedaa.f</itemPath>
+        <itemPath>swatsrc/rseday.f</itemPath>
+        <itemPath>swatsrc/rsedmon.f</itemPath>
+        <itemPath>swatsrc/rsedyr.f</itemPath>
+        <itemPath>swatsrc/rtbact.f</itemPath>
+        <itemPath>swatsrc/rtday.f</itemPath>
+        <itemPath>swatsrc/rteinit.f</itemPath>
+        <itemPath>swatsrc/rthmusk.f</itemPath>
+        <itemPath>swatsrc/rthpest.f</itemPath>
+        <itemPath>swatsrc/rthr.f</itemPath>
+        <itemPath>swatsrc/rthsed.f</itemPath>
+        <itemPath>swatsrc/rtmusk.f</itemPath>
+        <itemPath>swatsrc/rtout.f</itemPath>
+        <itemPath>swatsrc/rtpest.f</itemPath>
+        <itemPath>swatsrc/rtsed.f</itemPath>
+        <itemPath>swatsrc/rtsed_Molinas_Wu.f</itemPath>
+        <itemPath>swatsrc/rtsed_bagnold.f</itemPath>
+        <itemPath>swatsrc/rtsed_kodatie.f</itemPath>
+        <itemPath>swatsrc/rtsed_yangsand.f</itemPath>
+        <itemPath>swatsrc/sat_excess.f</itemPath>
+        <itemPath>swatsrc/save.f</itemPath>
+        <itemPath>swatsrc/saveconc.f</itemPath>
+        <itemPath>swatsrc/sched_mgt.f</itemPath>
+        <itemPath>swatsrc/schedule_ops.f</itemPath>
+        <itemPath>swatsrc/sim_initday.f</itemPath>
+        <itemPath>swatsrc/sim_inityr.f</itemPath>
+        <itemPath>swatsrc/simulate.f</itemPath>
+        <itemPath>swatsrc/slrgen.f</itemPath>
+        <itemPath>swatsrc/smeas.f</itemPath>
+        <itemPath>swatsrc/snom.f</itemPath>
+        <itemPath>swatsrc/soil_chem.f</itemPath>
+        <itemPath>swatsrc/soil_par.f</itemPath>
+        <itemPath>swatsrc/soil_phys.f</itemPath>
+        <itemPath>swatsrc/soil_write.f</itemPath>
+        <itemPath>swatsrc/solp.f</itemPath>
+        <itemPath>swatsrc/solt.f</itemPath>
+        <itemPath>swatsrc/std1.f</itemPath>
+        <itemPath>swatsrc/std2.f</itemPath>
+        <itemPath>swatsrc/std3.f</itemPath>
+        <itemPath>swatsrc/stdaa.f</itemPath>
+        <itemPath>swatsrc/storeinitial.f</itemPath>
+        <itemPath>swatsrc/structure.f</itemPath>
+        <itemPath>swatsrc/sub_subbasin.f</itemPath>
+        <itemPath>swatsrc/subaa.f</itemPath>
+        <itemPath>swatsrc/subbasin.f</itemPath>
+        <itemPath>swatsrc/subday.f</itemPath>
+        <itemPath>swatsrc/submon.f</itemPath>
+        <itemPath>swatsrc/substor.f</itemPath>
+        <itemPath>swatsrc/subwq.f</itemPath>
+        <itemPath>swatsrc/subyr.f</itemPath>
+        <itemPath>swatsrc/sumhyd.f</itemPath>
+        <itemPath>swatsrc/sumv.f</itemPath>
+        <itemPath>swatsrc/surface.f</itemPath>
+        <itemPath>swatsrc/surfst_h2o.f</itemPath>
+        <itemPath>swatsrc/surfstor.f</itemPath>
+        <itemPath>swatsrc/surq_daycn.f</itemPath>
+        <itemPath>swatsrc/surq_greenampt.f</itemPath>
+        <itemPath>swatsrc/swbl.f</itemPath>
+        <itemPath>swatsrc/sweep.f</itemPath>
+        <itemPath>swatsrc/swu.f</itemPath>
+        <itemPath>swatsrc/tair.f</itemPath>
+        <itemPath>swatsrc/tgen.f</itemPath>
+        <itemPath>swatsrc/theta.f</itemPath>
+        <itemPath>swatsrc/tillfactor.f</itemPath>
+        <itemPath>swatsrc/tillmix.f</itemPath>
+        <itemPath>swatsrc/tmeas.f</itemPath>
+        <itemPath>swatsrc/tran.f</itemPath>
+        <itemPath>swatsrc/transfer.f</itemPath>
+        <itemPath>swatsrc/tstr.f</itemPath>
+        <itemPath>swatsrc/ttcoef.f</itemPath>
+        <itemPath>swatsrc/ttcoef_wway.f</itemPath>
+        <itemPath>swatsrc/urb_bmp.f</itemPath>
+        <itemPath>swatsrc/urban.f</itemPath>
+        <itemPath>swatsrc/urbanhr.f</itemPath>
+        <itemPath>swatsrc/varinit.f</itemPath>
+        <itemPath>swatsrc/vbl.f</itemPath>
+        <itemPath>swatsrc/virtual.f</itemPath>
+        <itemPath>swatsrc/volq.f</itemPath>
+        <itemPath>swatsrc/washp.f</itemPath>
+        <itemPath>swatsrc/watbal.f</itemPath>
+        <itemPath>swatsrc/water_hru.f</itemPath>
+        <itemPath>swatsrc/watqual.f</itemPath>
+        <itemPath>swatsrc/watqual2.f</itemPath>
+        <itemPath>swatsrc/wattable.f</itemPath>
+        <itemPath>swatsrc/watuse.f</itemPath>
+        <itemPath>swatsrc/weatgn.f</itemPath>
+        <itemPath>swatsrc/wetlan.f</itemPath>
+        <itemPath>swatsrc/wmeas.f</itemPath>
+        <itemPath>swatsrc/wndgen.f</itemPath>
+        <itemPath>swatsrc/writea.f</itemPath>
+        <itemPath>swatsrc/writeaa.f</itemPath>
+        <itemPath>swatsrc/writed.f</itemPath>
+        <itemPath>swatsrc/writem.f</itemPath>
+        <itemPath>swatsrc/xmon.f</itemPath>
+        <itemPath>swatsrc/ysed.f</itemPath>
+        <itemPath>swatsrc/zero0.f</itemPath>
+        <itemPath>swatsrc/zero1.f</itemPath>
+        <itemPath>swatsrc/zero2.f</itemPath>
+        <itemPath>swatsrc/zero_urbn.f</itemPath>
+        <itemPath>swatsrc/zeroini.f</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>swatsrc</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <fortranCompilerTool>
+          <commandlineTool>/usr/local/gcc-5.4.0/bin/gfortran</commandlineTool>
+          <commandLine>-finit-local-zero</commandLine>
+        </fortranCompilerTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </compileType>
+      <item path="swatsrc/MAIN.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o ${OBJECTDIR}/swatsrc/MODsce.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/MODparm.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/MODsce.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/SCEIN.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o ${OBJECTDIR}/swatsrc/MODsce.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/SCEUA.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o ${OBJECTDIR}/swatsrc/MODsce.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/SCEfunctn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/USERfunc.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/addh.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/albedo.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/allocate_parms.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/alph.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/anfert.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/apex_day.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/apply.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ascrv.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/atri.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/aunif.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/autoirr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/aveval.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bacteria.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/biofilm.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/biozone.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmp_det_pond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmp_ri_pond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmp_sand_filter.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmp_sed_pond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmp_wet_pond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmpfixed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/bmpinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/buffer.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/burnop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/canopyint.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/caps.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/carbon_new.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/carbon_zhang2.f90" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/cfactor.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/chkcst.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/clgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/clicon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/command.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/conapply.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/confert.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/crackflow.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/crackvol.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/curno.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/dailycn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/decay.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/depstor.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/distrib_bmps.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/dormant.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/drains.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/dstn1.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ee.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/eiusle.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/enrsb.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/erfc.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/estimate_ksat.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/etact.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/etpot.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/expo.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/fert.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/filter.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/filtw.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/finalbal.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/gcycl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/getallo.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/grass_wway.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/graze.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/grow.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/gw_no3.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/gwmod.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/gwmod_deep.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/gwnutr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/h2omgt_init.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/harvestop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/harvgrainop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/harvkillop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/header.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/headout.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hhnoqual.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hhwatqual.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hmeas.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hruaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hruallo.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hruday.f90" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hrumon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hrupond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hrupondhr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hruyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/hydroinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/icl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/impnd_init.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/impndaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/impndday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/impndmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/impndyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/irr_rch.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/irr_res.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/irrigate.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/irrsub.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/jdt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/killop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/lakeq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/latsed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/layersplit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/lwqdef.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nCsed_leach.f90" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ndenit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/newtillmix.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nfix.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nitvol.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nlch.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nminrl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/noqual.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/npup.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nrain.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nup.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/nuts.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/openwth.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/operatn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/orgn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/orgncswat.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/origtile.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ovr_sed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/percmacro.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/percmain.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/percmicro.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pestlch.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pestw.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pesty.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pgenhr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pkq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/plantmod.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/plantop.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pmeas.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pminrl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pminrl2.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pond.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pondhr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/pothole.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/potholehr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/print_hyd.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/psed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/qman.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ran1.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchuse.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rchyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readatmodep.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readbsn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readchm.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readcnst.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readfcst.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readfert.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readfig.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readfile.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readgw.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readhru.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readinpt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readlup.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readlwq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readmgt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readops.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readpest.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readplant.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readpnd.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readres.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readrte.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readru.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readsdr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readsepticbz.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readseptwq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readsno.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readsol.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readsub.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readswq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readtill.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readurban.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readwgn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readwus.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readwwq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/readyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/reccnst.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/recday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rechour.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/recmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/recyear.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/regres.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/res.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/resbact.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/resetlu.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/reshr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/resinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/resnut.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rewind_init.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rhgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rootfr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/route.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/routels.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/routeunit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/routres.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rsedaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rseday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rsedmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rsedyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtbact.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rteinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rthmusk.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rthpest.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rthr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rthsed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtmusk.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtout.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtpest.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtsed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtsed_Molinas_Wu.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtsed_bagnold.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtsed_kodatie.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/rtsed_yangsand.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sat_excess.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/save.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/saveconc.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sched_mgt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/schedule_ops.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sim_initday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sim_inityr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/simulate.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/slrgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/smeas.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/snom.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/soil_chem.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/soil_par.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/soil_phys.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/soil_write.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/solp.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/solt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/std1.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/std2.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/std3.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/stdaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/storeinitial.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/structure.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sub_subbasin.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/subaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/subbasin.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/subday.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/submon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/substor.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/subwq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/subyr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sumhyd.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sumv.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/surface.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/surfst_h2o.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/surfstor.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/surq_daycn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/surq_greenampt.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/swbl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/sweep.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/swu.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tair.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/theta.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tillfactor.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tillmix.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tmeas.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tran.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/transfer.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/tstr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ttcoef.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ttcoef_wway.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/urb_bmp.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/urban.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/urbanhr.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/varinit.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/vbl.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/virtual.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/volq.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/washp.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/watbal.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/water_hru.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/watqual.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/watqual2.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/wattable.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/watuse.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/weatgn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/wetlan.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/wmeas.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/wndgen.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/writea.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/writeaa.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/writed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/writem.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/xmon.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/ysed.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/zero0.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/zero1.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/zero2.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/zero_urbn.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/zeroini.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep>${OBJECTDIR}/swatsrc/MODparm.o</additionalDep>
+        </fortranCompilerTool>
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <compilerSet>default</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+          <commandlineTool>/usr/local/gcc-5.4.0/bin/gfortran</commandlineTool>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+        <linkerTool>
+          <linkerDynSerch>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+            <pElem>.</pElem>
+          </linkerDynSerch>
+        </linkerTool>
+      </compileType>
+      <item path="swatsrc/MAIN.f" ex="false" tool="2" flavor2="0">
+        <fortranCompilerTool>
+          <additionalDep></additionalDep>
+        </fortranCompilerTool>
+      </item>
+      <item path="swatsrc/MODparm.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/MODsce.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/SCEIN.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/SCEUA.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/SCEfunctn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/USERfunc.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/addh.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/albedo.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/allocate_parms.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/alph.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/anfert.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/apex_day.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/apply.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ascrv.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/atri.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/aunif.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/autoirr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/aveval.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bacteria.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/biofilm.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/biozone.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmp_det_pond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmp_ri_pond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmp_sand_filter.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmp_sed_pond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmp_wet_pond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmpfixed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/bmpinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/buffer.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/burnop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/canopyint.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/caps.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/carbon_new.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/carbon_zhang2.f90" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/cfactor.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/chkcst.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/clgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/clicon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/command.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/conapply.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/confert.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/crackflow.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/crackvol.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/curno.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/dailycn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/decay.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/depstor.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/distrib_bmps.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/dormant.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/drains.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/dstn1.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ee.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/eiusle.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/enrsb.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/erfc.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/estimate_ksat.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/etact.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/etpot.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/expo.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/fert.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/filter.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/filtw.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/finalbal.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/gcycl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/getallo.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/grass_wway.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/graze.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/grow.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/gw_no3.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/gwmod.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/gwmod_deep.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/gwnutr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/h2omgt_init.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/harvestop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/harvgrainop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/harvkillop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/header.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/headout.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hhnoqual.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hhwatqual.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hmeas.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hruaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hruallo.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hruday.f90" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hrumon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hrupond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hrupondhr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hruyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/hydroinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/icl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/impnd_init.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/impndaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/impndday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/impndmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/impndyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/irr_rch.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/irr_res.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/irrigate.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/irrsub.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/jdt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/killop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/lakeq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/latsed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/layersplit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/lwqdef.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nCsed_leach.f90" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ndenit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/newtillmix.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nfix.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nitvol.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nlch.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nminrl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/noqual.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/npup.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nrain.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nup.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/nuts.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/openwth.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/operatn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/orgn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/orgncswat.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/origtile.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ovr_sed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/percmacro.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/percmain.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/percmicro.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pestlch.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pestw.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pesty.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pgenhr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pkq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/plantmod.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/plantop.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pmeas.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pminrl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pminrl2.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pond.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pondhr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/pothole.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/potholehr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/print_hyd.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/psed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/qman.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ran1.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchuse.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rchyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readatmodep.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readbsn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readchm.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readcnst.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readfcst.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readfert.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readfig.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readfile.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readgw.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readhru.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readinpt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readlup.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readlwq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readmgt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readops.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readpest.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readplant.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readpnd.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readres.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readrte.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readru.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readsdr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readsepticbz.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readseptwq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readsno.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readsol.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readsub.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readswq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readtill.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readurban.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readwgn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readwus.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readwwq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/readyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/reccnst.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/recday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rechour.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/recmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/recyear.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/regres.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/res.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/resbact.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/resetlu.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/reshr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/resinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/resnut.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rewind_init.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rhgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rootfr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/route.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/routels.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/routeunit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/routres.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rsedaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rseday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rsedmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rsedyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtbact.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rteinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rthmusk.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rthpest.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rthr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rthsed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtmusk.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtout.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtpest.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtsed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtsed_Molinas_Wu.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtsed_bagnold.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtsed_kodatie.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/rtsed_yangsand.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sat_excess.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/save.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/saveconc.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sched_mgt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/schedule_ops.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sim_initday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sim_inityr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/simulate.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/slrgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/smeas.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/snom.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/soil_chem.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/soil_par.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/soil_phys.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/soil_write.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/solp.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/solt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/std1.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/std2.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/std3.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/stdaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/storeinitial.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/structure.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sub_subbasin.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/subaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/subbasin.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/subday.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/submon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/substor.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/subwq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/subyr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sumhyd.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sumv.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/surface.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/surfst_h2o.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/surfstor.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/surq_daycn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/surq_greenampt.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/swbl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/sweep.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/swu.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tair.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/theta.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tillfactor.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tillmix.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tmeas.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tran.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/transfer.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/tstr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ttcoef.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ttcoef_wway.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/urb_bmp.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/urban.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/urbanhr.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/varinit.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/vbl.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/virtual.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/volq.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/washp.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/watbal.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/water_hru.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/watqual.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/watqual2.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/wattable.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/watuse.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/weatgn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/wetlan.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/wmeas.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/wndgen.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/writea.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/writeaa.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/writed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/writem.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/xmon.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/ysed.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/zero0.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/zero1.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/zero2.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/zero_urbn.f" ex="false" tool="2" flavor2="0">
+      </item>
+      <item path="swatsrc/zeroini.f" ex="false" tool="2" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

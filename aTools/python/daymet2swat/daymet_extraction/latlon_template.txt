@@ -1,0 +1,3 @@
+filename1.csv, 40.0,-100.0, ingore stuff1
+filename2.csv, 42.0,-89.0, ingore stuff2
+filename3.csv, 45.2,-87.8, ingore stuff3
