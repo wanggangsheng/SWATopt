@@ -417,7 +417,7 @@
         cropname = "NOCR"
       endif
 !!SCE_BEGIN
-      if(sGLB%iModel.eq.0) then !!run SWAT
+      if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
       if (iscen == 1 .and. isproj == 0) then
         if (icalen == 0) write (28,1001) cropname, j, subnum(j),        &
      &      hruno(j), sb, nmgt(j), iida, hru_km(j),                     &
@@ -446,9 +446,9 @@
 1003  format(a4,i5,1x,a5,a4,i5,1x,i4,1x,i2,1x,i2,1x,i4,1x,e10.5,66f10.3,&
      &1x,e10.5,1x,e10.5,8e10.3,f10.3,1x,i4)
         end if  !!Line 421: if (iscen == 1 .and. isproj == 0) then
-      end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+      end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
       else
-        if(sGLB%iModel.eq.0) then !!run SWAT
+        if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
         if (iscen == 1 .and. isproj == 0) then
         if(icalen == 0)write (28,1000) cropname, j, subnum(j), hruno(j),&
      &        sb,nmgt(j), iida, hru_km(j), (pdvas(ii), ii = 1, mhruo)
@@ -471,7 +471,7 @@
      &      sb,nmgt(j), i_mo, icl(iida), iyr, hru_km(j),                &
      &      (pdvas(ii), ii = 1, mhruo), iyr
         end if  !!!!Line 452: if (iscen == 1 .and. isproj == 0) then
-        end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+        end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
       end if
 
 

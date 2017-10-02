@@ -31,10 +31,10 @@
       do j = 1, subtot
           rchmono(58,j) = rchmono(58,j)/Real(mdays) 
 !!SCE_BEGIN
-      IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
           write (84,5000) j, subgis(j), mo_chk, rch_dakm(j),            
      &       rchmono(3,j), rchmono(4,j),(rchmono(ii,j),ii=42,58)
-      END IF  !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      END IF  !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
       end do
 

@@ -213,18 +213,18 @@
 
 
           !!write channel degradation data (chan.deg)
-          if(sGLB%iModel.eq.0) then !!run SWAT
+          if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
           if (ideg == 1) then 
             write (16,780) iyr
             do j = 1, nrch
               write (16,779) j, ch_d(j), ch_w(2,j), ch_s(2,j)
             end do
           end if
-          end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+          end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
 !
         if (iprint /= 1) then
           !! annual write--pesticide output (output.pst) for HRUs
-          if(sGLB%iModel.eq.0) then !!run SWAT
+          if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
           do j = 1, nhru
             if (hrupest(j) == 1) then
             sum = 0.
@@ -250,7 +250,7 @@
 
 !         !! annual write--sediment routing (.sed)
           call rsedyr
-          end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+          end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
 !!SCE_END
           idlast = 0
           idlast = i - (id1 - 1)
@@ -267,7 +267,7 @@
             resouty(40,j) = resouty(40,j) / Real(idlast)
             resouty(41,j) = resouty(41,j) / Real(idlast)
 !!SCE_BEGIN
-            if(sGLB%iModel.eq.0) then !!run SWAT
+            if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
             if (iyr >= iyres(j)) then
               if (iscen == 1 .and. isproj == 0) then
               write (8,5800) j, iyr, res_vol(j), resouty(1,j),          
@@ -311,7 +311,7 @@
 
               endif
             end if  !!if (iyr >= iyres(j)) then
-            end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+            end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
 !!SCE_END
           end do
         end if !!if (iprint /= 1) then

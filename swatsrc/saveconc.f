@@ -147,11 +147,11 @@
             varii(19) = hhvaroute(1,ihout,ii)
           end if
 !!SCE_BEGIN
-          if(sGLB%iModel.eq.0) then !!run SWAT
+          if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
           if (curyr > nyskip) then
 		  write (50+inum1,2000) iyr, iida, ii-1, (varii(j), j = 1, 19)
 	  endif
-          end if !!if(sGLB%iModel.eq.0) then
+          end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then
 !!SCE_END
         end do
       else

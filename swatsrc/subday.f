@@ -98,7 +98,7 @@
           pdvb(ii) = pdvab(ipdvab(ii))
         end do
 !!SCE_BEGIN
-        if(sGLB%iModel.eq.0) then !!run SWAT
+        if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
         if (icalen == 0) write(31,1000)sb, subgis(sb), iida, sub_km(sb),
      &                                    (pdvb(ii), ii = 1, itotb), sb
         if (icalen == 1) write(31,1001)sb, subgis(sb), i_mo, icl(iida), 
@@ -109,9 +109,9 @@
 	        write (66666) sb, subgis(sb), iida, sub_km(sb),               
      &                                        (pdvb(ii), ii = 1, itotb)
 	      endif
-        end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+        end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
       else
-        if(sGLB%iModel.eq.0) then !!run SWAT
+        if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
         if (icalen == 0)write(31,1000) sb, subgis(sb), iida, sub_km(sb),
      &                                (pdvab(ii), ii = 1, msubo), sb
         if (icalen == 1)write(31,1001) sb, subgis(sb), i_mo, icl(iida), 
@@ -121,7 +121,7 @@
                 write(66666) sb, subgis(sb), iida, sub_km(sb),        
      &                                        (pdvab(ii), ii = 1, msubo)
               endif
-        end if !!if(sGLB%iModel.eq.0) then !!run SWAT
+        end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
 !!SCE_END        
 	end if  !!if (ipdvab(1) > 0) then
 

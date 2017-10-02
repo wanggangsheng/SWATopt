@@ -106,7 +106,7 @@
 !!    write statement to new output file (output.swr)
 !!    writes out the amount of water stored in the soil layer
 !!SCE_BEGIN
-      IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
       if (isto > 0) then 
         do j = 1, nhru
           write (129,5000) iida, j, (sol_st(j1,j), j1 = 1, sol_nly(j))
@@ -114,7 +114,7 @@
 !     &             (sol_no3(j1,j), j1 = 1, sol_nly(j))
         enddo
       end if
-      END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
 !!---------------------------------------------------------------------
 !!SCE_BEGIN
@@ -137,16 +137,16 @@
       
       if (iprint == 1.or.iprint==3) then
         if (da_ha < 1.e-9) then
-            IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+            IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 	    call rchday  !!SCE
 	    call rseday  !!SCE
-            END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+            END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 	    return
 	  end if
 
         !! daily write to output.std
 !!SCE_BEGIN
-        IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         if (iscen == 1) then
         write (26,6200) iida, wshddayo(1), wshddayo(3), wshddayo(4),    
      &                 wshddayo(104), wshddayo(5), wshddayo(109),       
@@ -163,7 +163,7 @@
      &                 wshddayo(45), wshddayo(46), wshddayo(44),        
      &                 wshddayo(40), wshddayo(43), wshddayo(41)
         endif
-        END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
         !! daily write to pesticide output file (output.pst) for HRUs
         do j = 1, nhru
@@ -173,35 +173,35 @@
             pstsum = pstsum + hrupstd(k,1,j) + hrupstd(k,2,j)
           end do
 !!SCE_BEGIN
-          IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
           if (pstsum > 0. .and. iprp == 1) then
                 write (30,5100) subnum(j), hruno(j), iyr, iida,         
      &                     (hrupstd(k,1,j), hrupstd(k,2,j), k = 1, npmx)
           end if
-          END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
           end if
         end do
         
-        IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 
         !! write daily reach output
         call rchday  !!SCE
 
         !! write daily sediment routing output (.sed)
         call rseday  !!SCE
-        END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 
       end if
 
       !! write velocities for steve/woody in temp file (Balaji)
 !!SCE_BEGIN
-      IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
       if (itemp == 1 .and. nrch > 0) then 
          write (141,5001) iida,iyr,(vel_chan(k),k= 1,nrch)
          write (142,5001) iida,iyr,(dep_chan(k),k= 1,nrch)
       end if 
-      END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
       
 !! monthly watershed output

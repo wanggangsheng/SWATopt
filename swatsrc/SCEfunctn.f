@@ -77,7 +77,7 @@
         CALL readfig   !in this subroutine, CALL readsub->readmgt/readhru
 !       CALL readatmodep
         CALL readinpt
-        if(sGLB%iMODEL.eq.0) then
+        if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then
             !! DO NOT call while doing optimization
             CALL std1    
             CALL std2    

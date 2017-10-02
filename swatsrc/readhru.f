@@ -244,7 +244,7 @@
       CALL par_new(surlag(ihru),i,sGLB%xua(iPAR),
      &             sGLB%iopt_par(iPAR),sGLB%ivar_par(iPAR),
      &             sGLB%nsub_opt,sGLB%isub_opt)
-      else if (sGLB%iModel.eq.0) then  !!run SWAT
+      else if (sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then  !!run SWAT
           surlag(ihru) = sGLB%subsurlag(i)  !!i: current subbasin ID
       end if !!if(sGLB%iModel > 0)
 !!SCE_END         

@@ -385,7 +385,7 @@
         end if
       
 !!SCE_BEGIN
-        if(sGLB%iModel.eq.0) then
+        if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then
       if (iprint == 1 .and. curyr > nyskip) then
         if (iscen == 1.and. isproj == 0) then
         write (8,5000) jres, iida, res_vol(jres), resflwi / 86400.,     

@@ -503,7 +503,7 @@
       sbactlchlp = sbactlchlp / yrs
       
 !!SCE_BEGIN
-      IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+      IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 ! write average annual data
       if (iprint /= 1) then
         !! write average annual output--HRU (output.hru)
@@ -542,7 +542,7 @@
      &               (shyd(ii,ic), ii = 1, 8)
         end if
       end do
-      END IF !!if(sGLB%iModel.eq.0) then !!run SWAT
+      END IF !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
 !!SCE_END
 
 !! average septic outputs for output.std

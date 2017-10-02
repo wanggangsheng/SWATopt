@@ -194,7 +194,7 @@
  !! added NO3 Concentration to output.rch (for daily only) gsm 10/26/2011
  
 !!SCE_BEGIN
-        IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         if (ipdvar(1) > 0) then
           do ii = 1, itotr
             pdvr(ii) = pdvar(ipdvar(ii))
@@ -224,7 +224,7 @@
 
           endif
         end if
-        END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+        END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
       end do  !!do j = 1, subtot
 

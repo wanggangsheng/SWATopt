@@ -88,15 +88,15 @@
           do ii = 1, itotb
             pdvb(ii) = pdvab(ipdvab(ii))
           end do
-          IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
           write (31,1000) sb, subgis(sb), mo_chk, sub_km(sb),           
      &                                    (pdvb(ii), ii = 1, itotb), sb
-          end if !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          end if !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         else
-          IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
           write (31,1000) sb, subgis(sb), mo_chk, sub_km(sb),           
      &                                    (pdvab(ii), ii = 1, msubo), sb
-          end if !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+          end if !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         end if
       end do
 !!SCE: END

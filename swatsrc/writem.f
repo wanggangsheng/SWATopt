@@ -291,7 +291,7 @@
 !!---------------------------------------------------------------------        
         if (iprint /= 2 .and. curyr > nyskip) then
 !!SCE_BEGIN       
-           IF(sGLB%iModel.EQ.0) THEN !!run SWAT 
+           IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT 
           !! monthly write--output.std
           if (iscen == 1) then
           write (26,6200) mo_chk, wshdmono(1), wshdmono(3), wshdmono(4),
@@ -308,12 +308,12 @@
      &            wshdmono(46), wshdmono(44), wshdmono(40),             
      &            wshdmono(43), wshdmono(41), wshdmono(111)
           endif
-           END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+           END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !!SCE_END
 !!SCE_BEGIN
           
           if (iprint == 0) then
-             IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+             IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
             !! monthly write--pesticide output (output.pst) for HRUs
             do j = 1, nhru
               if (hrupest(j) == 1) then
@@ -412,18 +412,18 @@
             call hrumon
 
             call impndmon
-             END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+             END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
 !
 !            !! monthly write--subbasin output (output.sub)
             call submon
             
-!            IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+!            IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
             !! monthly write--reach output (.rch)
             if (idlast > 0) call rchmon(idlast)
 
             !! monthly write--sediment routing output (.sed)
             if (idlast > 0) call rsedmon(idlast)
-!            END IF !!IF(sGLB%iModel.EQ.0) THEN !!run SWAT
+!            END IF !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
           end if  !!if(iprint=0)
 !!SCE_END  
 !!SCE_BEGIN
