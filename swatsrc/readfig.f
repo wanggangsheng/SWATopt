@@ -306,6 +306,7 @@
               day_in = ""
               read (102,5100) day_in
               call caps(day_in)
+              close(555+inum1s(idum)) !! wgs: 9/29/2017, parameter optimization will repeatedly read the point source daily data 
               open (555+inum1s(idum),
      &         file=trim(sGLB%dir_swatio)//trim(day_in),recl=350)
               do ii = 1, 6
