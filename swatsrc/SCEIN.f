@@ -11,6 +11,7 @@
 !   MODIFIED BY GANGSHENG WANG - ORNL, MARCH 2015
 !
         IMPLICIT NONE
+        CHARACTER*1, PARAMETER :: quote=''''
         REAL,PARAMETER::dFill = -9999
         TYPE(sSCE_PAR), intent(inout):: sSCE
         
@@ -73,11 +74,14 @@
         
         sDIR_OBS        = trim(sGLB%dir_userio)//"aOBS/"
         sDIR_SCEIN      = trim(sGLB%dir_userio)//"aSCEIN/"
-        sDIR_SCEOUT     = trim(sGLB%dir_userio)//"aSCEOUT/"
+        sDIR_SCEOUT     = trim(sGLB%dir_userio)//"aSCEOUT/"        
         
         sGLB%dir_obs    = sDIR_OBS
         sGLB%dir_scein  = sDIR_SCEIN
         sGLB%dir_sceout = sDIR_SCEOUT
+        
+        sRead = 'mkdir '//quote//trim(sGLB%dir_sceout)//quote !!quote the directory as the directory may contain space
+        CALL system(sRead)
 
         close(1)    
         
