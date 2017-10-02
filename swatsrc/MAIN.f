@@ -119,7 +119,9 @@
         write(*,*)">>>Elapsed time for running SWAT = ",tHMS(1),"Hours",
      &            tHMS(2),"Minutes",tHMS(3),"Seconds"
         ALLOCATE(parOPT(sSCE%npar))
-
+        
+        write( *, * ) 'Press Enter to continue' 
+        read( *, * ) 
 !!!wgs--------------------------------------------------------
         if(sGLB%iMODEL.eq.1) then
         write (*, *) '>>>ENTER SWAT-SCEUA PROGRAM...'
