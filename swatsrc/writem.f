@@ -252,12 +252,12 @@
             sGLB%data_sim(3,jjmon) = submono(1,jjsub) !!PCP;
      
           elseif(sGLB%itype_opt.ge.20.and.sGLB%itype_opt.le.39) then  !!(1)Flow_cms, (2)Sed_ton, (3)TP_ton, (4)TN_ton, (5)NO2+3_ton, (6)NO3_ton
-              
-            write(*,'(3I3,8E16.4)')jjmon,idlast,jjsub,
-     &       rchmono(2,jjsub)/idlast,rchmono(4,jjsub),  !!FLOW,SED_OUT
-     &       rchmono(9,jjsub),rchmono(18,jjsub), !!ORGP, SOLP
-     &       rchmono(16,jjsub),rchmono(35,jjsub),!!NO3, NO2
-     &       rchmono(33,jjsub),rchmono(7,jjsub)  !!NH4, ORGN
+            !!WGS: output check:  
+!            write(*,'(3I3,8E16.4)')jjmon,idlast,jjsub,
+!     &       rchmono(2,jjsub)/idlast,rchmono(4,jjsub),  !!FLOW,SED_OUT
+!     &       rchmono(9,jjsub),rchmono(18,jjsub), !!ORGP, SOLP
+!     &       rchmono(16,jjsub),rchmono(35,jjsub),!!NO3, NO2
+!     &       rchmono(33,jjsub),rchmono(7,jjsub)  !!NH4, ORGN
               
             sGLB%data_sim(1,jjmon) = rchmono(2,jjsub)/Real(idlast) !!flow; idlast = # of days in current month
             sGLB%data_sim(2,jjmon) = rchmono(4,jjsub)  !!Sediment (ton)

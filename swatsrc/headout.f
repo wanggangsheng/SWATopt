@@ -186,8 +186,12 @@
       return
  1000 format ('1',/t5,a80,t105,2(i2,'/'),i4,5x,2(i2,':'),i2)
  1010 format (/(t5,20a4))
- 1020 format (//'LULC  HRU       GIS  SUB  MGT  MON','   AREAkm2',      
-     & 78(a10))
+! 1020 format (//'LULC  HRU       GIS  SUB  MGT  MON','   AREAkm2',      
+!     & 78(a10))
+!! wgs: 
+ 1020 format (//'LULC,  HRU,  GIS,  SUB,  MGT,  MON,','   AREAkm2,',      
+     & 78(a10,","))
+     
  !    * 76(a10),"    GISnum")
  1021  format (//'LULC  HRU       GIS  SUB  MGT MO DA   YR',            
      &'   AREAkm2', 78(a10))	   

@@ -200,6 +200,7 @@
           case (3)                   !! use measured daily outflow
             flw = 0.
             read (350+jres,5000) flw
+!            if(jres.eq.1)  write(*,*)jres, flw
             resflwo = 86400. * flw
           case (4)
             targ = res_pvol(jres) * starg_fps(jres)

@@ -302,8 +302,14 @@
           if (iscen == 1) then                                          
             select case (isproj)
             case (0)
-            write (28,1000) cropname, j, subnum(j), hruno(j), sb,       
-     &         nmgt(j), mo_chk, hru_km(j), (pdvs(ii), ii = 1, ix)
+!!wgs:
+!            write (28,1000) cropname, j, subnum(j), hruno(j), sb,       
+!     &         nmgt(j), mo_chk, hru_km(j), (pdvs(ii), ii = 1, ix)
+            write (28,1002) cropname, ",",j,",", subnum(j), 
+     &                      hruno(j),",", sb,",",       
+     &                      nmgt(j),",", mo_chk,",", hru_km(j),",", 
+     &                      (pdvs(ii),",", ii = 1, ix)
+     
             case (1)
             write (21,1000) cropname, j, subnum(j), hruno(j),           
      &         sb, nmgt(j), mo_chk, hru_km(j), (pdvs(ii), ii = 1, ix)
@@ -333,6 +339,11 @@
       return
  1000 format (a4,i5,1x,a5,a4,i5,1x,i4,1x,i4,e10.5,66f10.3,1x,
      *e10.5,1x,e10.5,8e10.3,2f10.3)
+ !! wgs:
+ 1002 format (a4,a,i5,a,1x,a5,a4,a,i5,a,1x,i4,a,1x,i4,a,e10.5,a,
+     *66(f10.3,a),1x,
+     *e10.5,a,1x,e10.5,a,8(e10.3,a),2(f10.3,a))
+     
  2000 format (a4,i5,1x,a5,a4,i5,1x,i4,1x,i4,e10.5,66f10.3,1x,
      *e10.5,1x,e10.5,5e10.3,5f10.3,1x,i4)
  1001 format (a4,i7,1x,a5,a4,i5,1x,i4,1x,i4,e10.5,66f10.3,1x,

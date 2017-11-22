@@ -120,8 +120,9 @@
      &            tHMS(2),"Minutes",tHMS(3),"Seconds"
         ALLOCATE(parOPT(sSCE%npar))
         
-        write( *, * ) 'Press Enter to continue' 
-        read( *, * ) 
+        write(*,*)">>>Check Output.* Files ", 
+     &            "before Pressing Enter to Continue" 
+        read(*,*) 
 !!!wgs--------------------------------------------------------
         if(sGLB%iMODEL.eq.1) then
         write (*, *) '>>>ENTER SWAT-SCEUA PROGRAM...'
