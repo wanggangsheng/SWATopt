@@ -120,9 +120,13 @@
      &            tHMS(2),"Minutes",tHMS(3),"Seconds"
         ALLOCATE(parOPT(sSCE%npar))
         
-        write(*,*)">>>Check Output.* Files ", 
-     &            "before Pressing Enter to Continue" 
-        read(*,*) 
+!        read(*,*) 
+        call EXECUTE_COMMAND_LINE('mkdir -p '//trim(sGLB%dir_swatio)
+     &                            //'dirout')
+        call EXECUTE_COMMAND_LINE('cp '//trim(sGLB%dir_swatio)//
+     &          'output.* '//trim(sGLB%dir_swatio)//'dirout/') 
+        write(*,*)">>>Please check Output.* Files ", 
+     &            "that were copied to dirout" 
 !!!wgs--------------------------------------------------------
         if(sGLB%iMODEL.eq.1) then
         write (*, *) '>>>ENTER SWAT-SCEUA PROGRAM...'
