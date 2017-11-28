@@ -1,4 +1,5 @@
       subroutine sceua(sSCE)
+      USE MPI
       USE parm
       USE scemod
 !$debug
@@ -98,6 +99,8 @@
 !c
 !c  ARRAYS FROM THE INPUT DATA
       implicit none
+      
+      integer ierr, np, pid, mpi_seed
       TYPE(sSCE_PAR) sSCE
       
       real parx_val(sSCE%npar),parx_min(sSCE%npar),parx_max(sSCE%npar)
@@ -202,29 +205,43 @@
 
 !c  GENERATE AN INITIAL SET OF npt1 POINTS IN THE PARAMETER SPACE
 !c  IF iniflg IS EQUAL TO 1, SET x(1,.) TO INITIAL POINT a(.)
-      if (iniflg .eq. 1) then
-        do j = 1, npar
-          x(1,j) = parx_val(j)
-        end do
-        xf(1) = fa
+!!      if (iniflg .eq. 1) then
+!!        do j = 1, npar
+!!          x(1,j) = parx_val(j)
+!!        end do
+!!        xf(1) = fa
        
 !c  ELSE, GENERATE A POINT RANDOMLY AND SET IT EQUAL TO x(1,.)
-      else
-        call getpnt(sSCE,1,xx,unit,parx_min)
+!!      else
+!!        call getpnt(sSCE,1,xx,unit,parx_min)
 !        call getpnt(nopt,1,iseed1,xx,parx_min,parx_max,unit,parx_min)
-        do j=1, npar
-          x(1,j) = xx(j)
-        end do
-        xf(1) = functn(npar,xx)
-      end if
-      icall = 1
-      if (icall .ge. maxn) go to 9000
+!!        do j=1, npar
+!!          x(1,j) = xx(j)
+!!        end do
+!!        xf(1) = functn(npar,xx)
+!!      end if
+!!      icall = 1
+!!      if (icall .ge. maxn) go to 9000
 
 !c  GENERATE npt1-1 RANDOM POINTS DISTRIBUTED UNIFORMLY IN THE PARAMETER
 !c  SPACE, AND COMPUTE THE CORRESPONDING FUNCTION VALUES
-      do isce = 2, npt1
+!!----------------------------------------------------
+!! wgs: 11/24/2017: beg
+      icall = 0
+      call MPI_INIT(ierr)
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, np, ierr)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, pid, ierr)
+     
+      mpi_seed = 123456789 + pid*100
+      call srand(mpi_seed) 
+      do isce = pid+1, npt1, np
         call getpnt(sSCE,1,xx,unit,parx_min)
-!        call getpnt(nopt,1,iseed1,xx,parx_min,parx_max,unit,parx_min)
+        if (iniflg .eq. 1) then
+          do j = 1, npar
+            xx(j) = parx_val(j)
+          end do
+        end if
+
         do j = 1, npar
           x(isce,j) = xx(j)
         end do
@@ -233,12 +250,19 @@
         
 !        write(*,*)isce,x(isce,1:npar),"<>",xf(isce)
         
-        icall = icall + 1
-        if (icall .ge. maxn) then
-          npt1 = isce
-          go to 45
-        end if
+!!        if(pid == 0) then
+           write(*,*)'PARALLEL TEST: npt1/np/pid/isce/mpi_seed=',
+     &                npt1,np,pid,isce,mpi_seed     
+!!        end if
       end do
+      call MPI_FINALIZE(ierr)
+!! wgs: 11/24/2017: end
+!!-----------------------------------------------------
+      icall = icall + npt1
+      if (icall.ge.maxn) then
+          npt1 = npt1 - (icall - maxn)
+      end if
+
 
 !c  ARRANGE THE POINTS IN ORDER OF INCREASING FUNCTION VALUE
    45 call sort(npt1,npar,x,xf)

@@ -1,0 +1,22 @@
+#!/bin/csh -f
+#==============================================================================
+#USERDEFINED
+# This is where the batch submission is set.  The above code computes
+# the total number of tasks, nodes, and other things that can be useful
+# here.  Use PBS, BSUB, or whatever the local environment supports.
+#===============================================================================
+
+#PBS -N SWATopt
+#PBS -q batch
+#PBS -l nodes=4:ppn=8
+#PBS -l walltime=12:00:00
+#PBS -r n
+#PBS -j oe
+#PBS -S /bin/csh -V
+#PBS -A ccsi
+#PBS -W group_list=cades-ccsi
+#PBS -l qos=std
+
+cd /lustre/or-hydra/cades-ccsi/wanggs/models/SWATopt  #$PWD
+mpirun -np 32 ./dist/Debug/GNU-MacOSX/swatopt>&aaa.txt
+

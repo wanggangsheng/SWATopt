@@ -286,7 +286,13 @@
       read (101,*) nyskip
 !!! check that nyskip input is not greater or equal to nbyr input
       if (nyskip >= nbyr) nyskip = nbyr - 1
-      
+
+!!wgs: beg
+      nbyr = sGLB%nyear_sim0
+      iyr = sGLB%iyear0
+      iprint = sGLB%iprint
+!!wgs: end      
+
       read (101,*) ilog
       read (101,*) iprp
       read (101,5101) titldum

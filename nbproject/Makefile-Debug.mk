@@ -14,10 +14,10 @@ GREP=grep
 NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=gcc
-CCC=g++
-CXX=g++
-FC=/usr/local/gcc-5.4.0/bin/gfortran
+CC=mpicc
+CCC=mpicxx
+CXX=mpicxx
+FC=mpif90
 AS=as
 
 # Macros

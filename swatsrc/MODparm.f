@@ -19,8 +19,10 @@
             INTEGER imon_sim                                !!the ith month in nday_sim
             INTEGER iyear0                                  !!Beginning year of simulation, = IYR in 'file.cio'
             INTEGER nyear_sim                               !!# of years simulated, excluding 'nyear_warmup'
+            INTEGER nyear_sim0                              !!# of years simulated,  = nyear_warmup + nyear_sim
             INTEGER nday_sim0                               !!=nday_sim, # of days simulated, computed by iyear0,nyear_sim, nyear_warmup
             INTEGER nmon_sim                                !!# of months simulated,excluding warmup
+            INTEGER iprint                                  !!print code (month, day, year), line 59 in 'file.cio' 
             INTEGER iSWAT                                   !!the ith SWAT simulation run: call functn(npar, x) in 'SCEfunctn.f'
             INTEGER iModel                                  !!0: run SWAT; >0: SCEUA optimization
             INTEGER iOBJ                                    !!sGLB%iOBJ  = 0-NSE; 1-MARE; 2-NRMSE

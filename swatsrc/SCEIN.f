@@ -80,7 +80,7 @@
         sGLB%dir_scein  = sDIR_SCEIN
         sGLB%dir_sceout = sDIR_SCEOUT
         
-        sRead = 'mkdir '//quote//trim(sGLB%dir_sceout)//quote !!quote the directory as the directory may contain space
+        sRead = 'mkdir -p '//quote//trim(sGLB%dir_sceout)//quote !!quote the directory as the directory may contain space
         CALL system(sRead)
 
         close(1)    
@@ -188,7 +188,10 @@
         read(iFin, *)
         read(iFin,*)msub1,nbyr1,iyear1,iprint1,iModel1
         sRead = sGLB%dir_swatio
-        CALL Write_filecio(sRead,nbyr1,iyear1,iprint1)
+        sGLB%nyear_sim0 = nbyr1
+        sGLB%iyear0 = iyear1
+        sGLB%iprint = iprint1
+!!        CALL Write_filecio(sRead,nbyr1,iyear1,iprint1)
         read(iFin, *)
         read(iFin,*)npar,nyear_warmup,
      &   itype_opt,icode_sub,icode_res,nsub_opt,
