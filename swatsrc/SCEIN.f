@@ -50,13 +50,17 @@
 
         character*50 format2013
         INTEGER nDaysofYear !!FUNCTION
-	
-        write (*,*) '>>>ENTER SCEIN SUBROUTINE...'
+
+        if(sGLB%pid.eq.0) then
+            write (*,*) '>>>ENTER SCEIN SUBROUTINE...'
+        end if
 
 !  INITIALIZE I/O VARIABLES
         call sGLB_INI_VAR()  !!initialize variables (excluding Arrays) in sGLB
-        write (*,*) 
+        if(sGLB%pid.eq.0) then
+            write (*,*) 
      &  ">>>READ SWAT DIR INFO in File 'SWAT.dir' in Current Model DIR"
+        end if
         open(1,file='SWAT.dir', status='old')
         read(1,*)svoid
         read(1,*)svoid
@@ -95,6 +99,7 @@
 	iFsurlag = 20069
 
         sfSCEini = trim(sDIR_SCEIN)//'SCE.ini'
+        if(sGLB%pid.eq.0) then
         print*, ">>>------------------------------------------"
         print*, "dir_SWATio = ", trim(sGLB%dir_swatio)
         print*, "dir_USERio = ", trim(sGLB%dir_userio)
@@ -102,6 +107,8 @@
         print*, "dir_SCEin  = ", trim(sGLB%dir_scein)
         print*, "dir_SCEout = ", trim(sGLB%dir_sceout)
         print*, ">>>------------------------------------------"
+        end if
+        
         open(unit=iFin0,file = sfSCEini,status='old')
         read(iFin0,*)
         read(iFin0,*)sGage !!iStation
@@ -132,6 +139,8 @@
         sfSCE_SUM = trim(sDIR_SCEOUT)//'SCEOUT_SUM.dat'
         sfSCE_OPT = trim(sDIR_SCEOUT)//'SCEOUT_OPT.dat'
         sfSCE_ALL = trim(sDIR_SCEOUT)//'SCEOUT_ALL.dat'
+
+        if(sGLB%pid.eq.0) then
         print*, ">>>File Names:"
         print*, ">>>------------------------------------------"
         print*, "File_SCE_initial = ", trim(sfSCEini)
@@ -139,11 +148,16 @@
         print*, "File_SCE_summary = ", trim(sfSCE_SUM)
         print*, "File_SCE_par_opt = ", trim(sfSCE_OPT)
         print*, "File_SCE_par_all = ", trim(sfSCE_ALL)
+        end if
         
         sRead = trim(sDIR_SCEOUT)//'SCE-SWAT.chk'
+        if(sGLB%pid.eq.0) then
         print*, "File_SIM_vs_OBS  = ", trim(sRead)
+        end if
         open(319, file=sRead, status='unknown')
+        if(sGLB%pid.eq.0) then
         print*, ">>>------------------------------------------"
+        end if
 !!wgs--------------------------------------------------------------
         open(unit=iFin,file=sfSCEIN,status='old')
         open(unit=sSCE%iFO1,file=sfSCE_SUM)
@@ -151,6 +165,7 @@
         open(unit=sSCE%iFO3,file=sfSCE_ALL)
 !!wgs===============================================================  
 !!wgs: write to SCEOUT_ALL.dat
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO3,*)"SWAT <VER 2012/Rev 627> MODEL RUN & OPT"
         write(sSCE%iFO3,*)
      &   ">>>Modified by GANGSHENG WANG @ ORNL:JUNE 3, 2015"
@@ -175,12 +190,15 @@
         write(sSCE%iFO3,*)"File_SCE_par_all = ", trim(sfSCE_ALL)
         write(sSCE%iFO3,*)"File_SIM_vs_OBS  = ", trim(sRead)
         write(sSCE%iFO3,*)">>>----------------------------------------"
+        end if !!if(sGLB%pid.eq.0) then
 !!wgs===============================================================
         ierror = 0
         iwarn = 0
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO1,700)
   700   format(10x,'SHUFFLED COMPLEX EVOLUTION GLOBAL OPTIMIZATION',
      &       /,10x,46(1h=))
+        end if
 
 
 !  READ THE SCE CONTROL PARAMETERS
@@ -207,13 +225,15 @@
         sGLB%icode_res = icode_res
         sGLB%nsub_opt = nsub_opt
         sGLB%iOBJ = iOBJ
-        sGLB%wOBJ = wOBJ
+        sGLB%wOBJ = wOBJ   !!sGLB%wOBJ(:) was initialized in sGLB_INI_VAR()
 !        write(*,*)sSCE%npar,sGLB%nyear_warmup,
 !     &   sGLB%itype_opt,sGLB%icode_sub,sGLB%icode_res,sGLB%nsub_opt,
 !     &   sGLB%rOBJ0,sGLB%rNSE0,sGLB%wNSEm,sGLB%wNSE !!'(2I5,3f10.2)'
 !!wgs-------------------------------------------
-        write(*,*)">>>ALLOCATE ARRAYS in STRUCTURE sSCE:"
-        write (sSCE%iFO3,*)">>>ALLOCATE ARRAYS in STRUCTURE sSCE:"
+        if(sGLB%pid.eq.0) then
+            write(*,*)">>>ALLOCATE ARRAYS in STRUCTURE sSCE:"
+            write (sSCE%iFO3,*)">>>ALLOCATE ARRAYS in STRUCTURE sSCE:"
+        end if
 !          ALLOCATE(iPar_sel(sSCE%npar))
           ALLOCATE(sSCE%parName(sSCE%npar))
           ALLOCATE(sSCE%parINI(sSCE%npar))
@@ -232,8 +252,10 @@
             sGLB%nday_sim0 = sGLB%nday_sim0 + nDaysofYear(jyear)
         end do
        
-        write(*,*)">>>ALLOCATE ARRAYS in STRUCTURE sGLB:"
-        write (sSCE%iFO3,*)">>>ALLOCATE ARRAYS in STRUCTURE sGLB:"
+        if(sGLB%pid.eq.0) then
+            write(*,*)">>>ALLOCATE ARRAYS in STRUCTURE sGLB:"
+            write (sSCE%iFO3,*)">>>ALLOCATE ARRAYS in STRUCTURE sGLB:"
+        end if
         allocate (isub_opt(sGLB%nsub_opt)) 
         allocate (sGLB%isub_opt(sGLB%nsub_opt))      !!subbasin ID to be optimized
         allocate (sGLB%ivar_par(sSCE%npar))
@@ -245,9 +267,11 @@
         ALLOCATE (sGLB%sub_area(msub1)) !nSub
         allocate (sGLB%iGateDam(msub1))     !!0-subbasin,1-floodgate,2-reservoir
         allocate (sGLB%cwus(msub1))        !!wgs: different wateruse coefficient for each subbasin
-	allocate (sGLB%crwus(msub1))        !!wgs:
+        allocate (sGLB%crwus(msub1))        !!wgs:
         
-        write (sSCE%iFO3,*)">>>INITIALIZE ARRAYS in STRUCTURE sGLB:"
+        if(sGLB%pid.eq.0) then
+            write (sSCE%iFO3,*)">>>INITIALIZE ARRAYS in STRUCTURE sGLB:"
+        end if
         call sGLB_INI_ARRAY()  !!initialize Arrays in sGLB      
 !!wgs------------------------------------------- 
         
@@ -257,7 +281,9 @@
 !        write(*,*)sGLB%isub_opt
         read(iFin, *) !!FILE WITH OBSERVATION
 	    read(iFin,'(a20)')file_obs
-        write(*,*)'File_OBS: ', file_obs
+        if(sGLB%pid.eq.0) then
+            write(*,*)'File_OBS: ', file_obs
+        end if
         file_obs = trim(sDIR_OBS)//trim(file_obs)
 !!2006-08-04------------------------------------------------
         sSCE%ideflt = 0
@@ -359,18 +385,23 @@
       !!---------------------------------------------------------------------
 !!SCE_BEGIN   
         file_sub_area = trim(sDIR_OBS)//'sub_area.txt'
+        if(sGLB%pid.eq.0) then
         write(*,*)">>>Read SWAT Subbasin Area Values in '",
      &             trim(file_sub_area),"'"
         write(sSCE%iFO3,*)">>>Read SWAT Subbasin Area Values in '",
      &             trim(file_sub_area),"'"
+        end if !!if(sGLB%pid.eq.0) then
+
         open(unit=101,file = file_sub_area,status='old')
         read(101,*)  !!"No. of Subbasins"
         read(101,*)nSub
         if(nSub.ne.msub1) then
+            if(sGLB%pid.eq.0) then
             write(*,*)"No. of subbasins in ", file_sub_area, 
      &       " = ",nSub," <> in SWAT = ",msub1
             write(sSCE%iFO3,*)"No. of subbasins in ", file_sub_area, 
      &       " = ",nSub," <> in SWAT = ",msub1
+            end if
         end if
 !        ALLOCATE(sGLB%sub_area(nSub))
         read(101,*)  !!head
@@ -384,10 +415,13 @@
         
         sRead = trim(sGLB%dir_swatio)//"sub.lag"
         open(unit = iFsurlag,file=sRead,status = 'old')
+        if(sGLB%pid.eq.0) then
         write(*,*)">>>Read SUB SURLAG Values in '",trim(sRead),"'" 
         write(sSCE%iFO3,*)">>>Read SUB SURLAG Values in '",
      &                     trim(sRead),"'" 
-	read(iFsurlag,*)
+        end if
+
+	    read(iFsurlag,*)
         do j = 1,msub1
                 read(iFsurlag,*)ivoid,sGLB%subsurlag(j),
      &           sGLB%cwus(j),sGLB%crwus(j),sGLB%iGateDam(j) 
@@ -396,21 +430,22 @@
 !!SCE_END     
 
 !!wgs---------------------------------------------------------
+        write(format2013,*)"(A10,",sGLB%nsub_opt,"(I4))"
+        if(sGLB%pid.eq.0) then
         write(*,'(a11,i5,a12,a15,a7,i5)')
      &   'itype_opt =',sGLB%itype_opt,
      &    '; Station = ',sGage,'; RES = ',sGLB%icode_res
         
-        write(format2013,*)"(A10,",sGLB%nsub_opt,"(I4))"
         write(*,'(A10,I4)')'nsub_opt = ',sGLB%nsub_opt
         write(*,format2013)'isub_opt = ',sGLB%isub_opt
         write(*,'(a24,i3)')'No. of PAR    : npar = ',sSCE%npar
-	write(*,'(a24,i3)')'No. of PAR-OPT: nopt = ',sSCE%nopt
+        write(*,'(a24,i3)')'No. of PAR-OPT: nopt = ',sSCE%nopt
         write(*,'(A10,30I5)')"iOpt[] = ",sSCE%iOpt
-	write(*,*) 
+	    write(*,*) 
 !!wgs---------------------------------------------------------
         write(sSCE%iFO3,*)">>>--------------------------------------"
         write(sSCE%iFO3,*)'OBF (0-NSE,1-MARE,2-NRMSE) = ',sGLB%iOBJ
-	write(sSCE%iFO3,'(a11,i5,a12,a15,a7,i5)')
+	    write(sSCE%iFO3,'(a11,i5,a12,a15,a7,i5)')
      &    'itype_opt =',sGLB%itype_opt,  
      &    '; Station = ',sGage,'; RES = ',sGLB%icode_res
         write(sSCE%iFO3,*)">>>--------------------------------------"
@@ -418,7 +453,7 @@
         write(sSCE%iFO3,format2013)'isub_opt = ',sGLB%isub_opt
         write(sSCE%iFO3,*)">>>--------------------------------------"
         write(sSCE%iFO3,'(a24,i3)')'No. of PAR    : npar = ',sSCE%npar
-	write(sSCE%iFO3,'(a24,i3)')'No. of PAR-OPT: nopt = ',sSCE%nopt
+	   write(sSCE%iFO3,'(a24,i3)')'No. of PAR-OPT: nopt = ',sSCE%nopt
         write(sSCE%iFO3,'(A10,30I5)')"iOpt[] = ",sSCE%iOpt
         write(sSCE%iFO3,*)">>>--------------------------------------"
         write(sSCE%iFO3,*)"nYEARS_SPINUP      =",sGLB%nyear_warmup,
@@ -428,25 +463,31 @@
      &        "; FROM",sGLB%iyear0+sGLB%nyear_warmup,
      &        " TO",sGLB%iyear0+sGLB%nyear_warmup+sGLB%nyear_sim-1
 !!wgs---------------------------------------------------------   
-	write(sSCE%iFO2,*)"BEST PARAMETER SETS:"
+	    write(sSCE%iFO2,*)"BEST PARAMETER SETS:"
         write(sSCE%iFO3,*)">>>--------------------------------------"
         write(sSCE%iFO3,*)"ALL PARAMETER SETS:"
         write(sSCE%iFO3,*)"Calibrate or NOT (SEE BELOW): 1-YES,0-NO"
         write(format2013,*)"(",sSCE%npar,"(I10))"
         write(sSCE%iFO3,format2013)sGLB%iopt_par
         write(format2013,*)"(",sSCE%npar+2,"(a10))"
-	write(sSCE%iFO3,format2013)sSCE%parName,"<>","OBF"
+	    write(sSCE%iFO3,format2013)sSCE%parName,"<>","OBF"
+        close(sSCE%iFO3)
+        end if !!if(sGLB%pid.eq.0) then
 !!wgs---------------------------------------------------------
 !  CHECK IF THE SCE CONTROL PARAMETERS ARE VALID
         if (sSCE%ngs .lt. 1 .or. sSCE%ngs .ge. 1320) then
+            if(sGLB%pid.eq.0) then
             write(sSCE%iFO1,900) sSCE%ngs
+            end if
   900       format(//,1x,'**ERROR** NUMBER OF COMPLEXES IN INITIAL ',
      &         ' POPULATION ',i5,' IS NOT A VALID CHOICE')
             ierror = ierror + 1
         end if
 c
         if (sSCE%kstop .lt. 0 .or. sSCE%kstop .ge. 20) then
+            if(sGLB%pid.eq.0) then
             write(sSCE%iFO1,901) sSCE%kstop
+            end if
   901       format(//,1x,'**WARNING** THE NUMBER OF SHUFFLING LOOPS IN',
      &      ' WHICH THE CRITERION VALUE MUST CHANGE ',/,13x,'SHOULD BE',
      &      ' GREATER THAN 0 AND LESS THAN 10.  ','kstop = ',i2,
@@ -457,24 +498,30 @@ c
         end if
 
         if (sSCE%mings .lt. 1 .or. sSCE%mings .gt. sSCE%ngs) then
+            if(sGLB%pid.eq.0) then
             write(sSCE%iFO1,902) sSCE%mings
+            end if
   902       format(//,1x,'**WARNING** THE MINIMUM NUMBER OF COMPLEXES ',
      &         i2,' IS NOT A VALID CHOICE. SET IT TO DEFAULT')
             iwarn = iwarn + 1
             sSCE%mings = sSCE%ngs
         end if
 
-      if (sSCE%npg .lt. 2 .or. sSCE%npg .gt. 1320/max(sSCE%ngs,1)) then
+        if (sSCE%npg.lt.2 .or. sSCE%npg.gt.1320/max(sSCE%ngs,1)) then
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO1,903) sSCE%npg
+        end if
   903   format(//,1x,'**WARNING** THE NUMBER OF POINTS IN A COMPLEX ',
      &         I4,' IS NOT A VALID CHOICE, SET IT TO DEFAULT')
         iwarn = iwarn + 1
         sSCE%npg = 2*sSCE%nopt+1
-      end if
+        end if
 
       if (sSCE%nps.lt.2 .or. sSCE%nps.gt.sSCE%npg .or. sSCE%nps.gt.50) 
      &    then
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO1,904) sSCE%nps
+        end if
   904   format(//,1x,'**WARNING** THE NUMBER OF POINTS IN A SUB-',
      &  'COMPLEX ',i4,' IS NOT A VALID CHOICE, SET IT TO DEFAULT')
         iwarn = iwarn + 1
@@ -482,7 +529,9 @@ c
       end if
 
       if (sSCE%nspl .lt. 1) then
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO1,905) sSCE%nspl
+        end if
   905   format(//,1x,'**WARNING** THE NUMBER OF EVOLUTION STEPS ',
      &         'TAKEN IN EACH COMPLEX BEFORE SHUFFLING ',I4,/,13x,
      &         'IS NOT A VALID CHOICE, SET IT TO DEFAULT')
@@ -494,7 +543,9 @@ c
       sSCE%npt = sSCE%ngs * sSCE%npg
 
       if (sSCE%npt .gt. 1320) then
+        if(sGLB%pid.eq.0) then
         write(sSCE%iFO1,906) sSCE%npt
+        end if
   906   format(//,1x,'**WARNING** THE NUMBER OF POINTS IN INITIAL ',
      &         'POPULATION ',i5,' EXCEED THE POPULATION LIMIT,',/,13x,
      &         'SET NGS TO 2, AND NPG, NPS AND NSPL TO DEFAULTS')
@@ -506,10 +557,18 @@ c
       end if
 
 !  PRINT OUT THE TOTAL NUMBER OF ERROR AND WARNING MESSAGES
-      if (ierror .ge. 1) write(sSCE%iFO1,907) ierror
+        if (ierror .ge. 1) then
+            if(sGLB%pid.eq.0) then
+                write(sSCE%iFO1,907) ierror
+            end if
+        end if
   907 format(//,1x,'*** TOTAL NUMBER OF ERROR MESSAGES IS ',i2)
 
-      if (iwarn .ge. 1) write(sSCE%iFO1,908) iwarn
+        if (iwarn .ge. 1) then
+            if(sGLB%pid.eq.0) then
+                write(sSCE%iFO1,908) iwarn
+            end if
+        end if
   908 format(//,1x,'*** TOTAL NUMBER OF WARNING MESSAGES IS ',i2)
 
       if (sSCE%mings .lt. sSCE%ngs) then
@@ -526,39 +585,54 @@ c
 
 
 !c  PRINT SHUFFLED COMPLEX EVOLUTION OPTIMIZATION OPTIONS
-  104 write(sSCE%iFO1,910)
+  104   if(sGLB%pid.eq.0) then
+            write(sSCE%iFO1,910)
+        end if
   910 format(//,2x,'SCE CONTROL',5x,'MAX TRIALS',5x,
      &'REQUIRED IMPROVEMENT',5x,'RANDOM',/,3x,'PARAMETER',8x,
      &'ALLOWED',6x,'PERCENT',4x,'NO. LOOPS',6x,'nSCE',/,
      &2x,11(1h-),5x,10(1H-),5x,7(1h-),4x,9(1h-),5x,6(1h-))
 
       pcenta=sSCE%pcento*100.
+      if(sGLB%pid.eq.0) then
       write(sSCE%iFO1,912) pcntrl,sSCE%maxn,pcenta,sSCE%kstop,sSCE%nSCE
+      end if
   912 format(3x,a10,7x,i5,10x,f3.1,9x,i2,9x,i5)
+      if(sGLB%pid.eq.0) then
       write(sSCE%iFO1,914) sSCE%ngs,sSCE%npg,sSCE%npt,sSCE%nps,sSCE%nspl
+      end if
   914 format(//,18x,'SCE ALGORITHM CONTROL PARAMETERS',/,18x,32(1H=),
      &//,2x,'NUMBER OF',5x,'POINTS PER',5x,'POINTS IN',6x,'POINTS PER',
      &4x,'EVOL. STEPS',/,2x,'COMPLEXES',6X,'COMPLEX',6x,'INI. POPUL.',
      &5x,'SUB-COMPLX',4x,'PER COMPLEX',/,2x,9(1h-),5x,10(1h-),4x,
      &11(1h-),5x,10(1h-),4x,11(1h-),5x,/,2x,5(i5,10x))
+      if(sGLB%pid.eq.0) then
       write(sSCE%iFO1,915) reduc,sSCE%mings,initl
+      end if
   915 format(//,15x,'COMPLX NO.',5x,'MIN COMPLEX',5x,'INI. POINT',/,
      &15x,'REDUCTION',6x,'NO. ALLOWED',6x,'INCLUDED',/,
      &15x,10(1h-),5x,11(1h-),5x,10(1h-),/,18x,a4,6x,i8,13x,a4)
+      if(sGLB%pid.eq.0) then
       write(sSCE%iFO1,916)
+      end if
   916 format(//,8x,'INITIAL PARAMETER VALUES AND PARAMETER BOUNDS',/,
      &       8x,45(1h=),//,2x,'PARAMETER',5x,'INITIAL VALUE',5x,
      &       'LOWER BOUND',5x,'UPPER BOUND',5x,'OPT_Y/N',/,
      &       2x,9(1h-),5x,13(1h-),5x,11(1h-),
      &       5x,11(1h-),5x,11(1h-))
-      do 920 j = 1, sSCE%npar
+      if(sGLB%pid.eq.0) then
+      do j = 1, sSCE%npar
         write(sSCE%iFO1,918) sSCE%parName(j),
      &   sSCE%parINI(j),sSCE%parMIN(j),sSCE%parMAX(j),sGLB%iopt_par(j)
+      end do
+      end if
   918   format(a12,3(6x,f10.4),5x,I5)
 !  918   format(4x,a4,4x,3(6x,f10.3))
-  920 continue
+!!  920 continue
       if (ierror .ge. 1) then
+      if(sGLB%pid.eq.0) then
       write(sSCE%iFO1,922)
+      end if
   922 format(//,'*** THE OPTIMIZATION SEARCH IS NOT CONDUCTED BECAUSE',
      &       ' OF INPUT DATA ERROR ***')
       stop
@@ -622,7 +696,9 @@ c
                 ALLOCATE (sGLB%data_obs(mCOL,sGLB%nmon_sim))
                 sGLB%data_obs(:,:) = -9999
                 sGLB%data_sim(:,:) = -9999
-                write(*,*)">>>Read Observed Monthly FLOW(cms):"
+                if(sGLB%pid.eq.0) then
+                    write(*,*)">>>Read Observed Monthly FLOW(cms):"
+                end if
                 !!file_obs
                 iYearMon_begin = (sGLB%iyear0+sGLB%nyear_warmup)*100+1                !!begin from January
                 iYearMon_end = (sGLB%iyear0+sGLB%nyear_warmup
@@ -638,7 +714,9 @@ c
                 ALLOCATE (sGLB%data_obs(1,sGLB%nmon_sim))
                 sGLB%data_obs(:,:) = -9999
                 sGLB%data_sim(:,:) = -9999
-                write(*,*)">>>Read Observed Runoff_HUC8:"
+                if(sGLB%pid.eq.0) then
+                    write(*,*)">>>Read Observed Runoff_HUC8:"
+                end if
                 file_obs = trim(sDIR_OBS)//'mv01d_row_data.txt'  !!
                 iYearMon_begin = (sGLB%iyear0+sGLB%nyear_warmup)*100+1                !!begin from January
                 iYearMon_end = (sGLB%iyear0+sGLB%nyear_warmup
@@ -662,8 +740,10 @@ c
                 ALLOCATE (sGLB%data_obs(mCOL,sGLB%nmon_sim))
                 sGLB%data_obs(:,:) = -9999
                 sGLB%data_sim(:,:) = -9999
+                if(sGLB%pid.eq.0) then
                 write(*,*)">>>Read Observed Monthly Nutrients in '",
      &                     trim(file_obs),"'"
+                end if
                 !!file_obs
                 iYearMon_begin = (sGLB%iyear0+sGLB%nyear_warmup)*100+1                !!begin from January
                 iYearMon_end = (sGLB%iyear0+sGLB%nyear_warmup
@@ -672,14 +752,18 @@ c
      &               iYearMon_begin,iYearMon_end,mCOL,
      &               sGLB%nmon_sim,sGLB%data_obs)
             CASE DEFAULT
+                if(sGLB%pid.eq.0) then
                 write(*,*)">>>NO SPECIFIC CASE WAS SELECTED!!!"
+                end if
         END SELECT
 !!---------------------------------------------------------------------        
         close(sSCE%iFO1)  !!SCEOUT_SUM.dat
         open(unit=sSCE%iFO1,file=sfSCE_SUM,
      &   status="unknown",position = "append")
-        write(*,*)">>>EXIT SCEIN SUBROUTINE."
-        write(*,*)
+        if(sGLB%pid.eq.0) then
+            write(*,*)">>>EXIT SCEIN SUBROUTINE."
+            write(*,*)
+        end if
 
 !C  END OF SUBROUTINE SCEIN
       return

@@ -100,7 +100,24 @@
 !c  ARRAYS FROM THE INPUT DATA
       implicit none
       
-      integer ierr, np, pid, mpi_seed
+C     mpi variables
+      integer ierr, np, pid, pid0, mpi_seed, nset
+      integer nset0_pp !! = int(npt1/np), number of sets of parameters per prossesor
+      integer np_set1  !! = mod(npt1,np), number of prossesors with (nset0_pp + 1) sets of parameters 
+      integer recvcnt  !! = number of elements received by each processor, depending on rank (pid)
+      integer, ALLOCATABLE :: displs(:),sendcnts(:)
+      real, allocatable :: recvbuf(:)
+      real, allocatable :: sendbuf(:,:)
+      real, allocatable :: sendbuf1d(:)
+
+      integer, allocatable :: displs_xf(:),sendcnts_xf(:)
+      real, allocatable :: recvbuf_xf(:)
+      integer recvcnt_xf
+C       integer jsce, ksce, nrow_pp_max, icount, tagx,tagf
+C       integer status(MPI_STATUS_SIZE)
+C       integer, allocatable :: nrow_pp(:)
+C       integer, allocatable :: index_pp(:,:)
+
       TYPE(sSCE_PAR) sSCE
       
       real parx_val(sSCE%npar),parx_min(sSCE%npar),parx_max(sSCE%npar)
@@ -119,17 +136,20 @@
       real randx
       real functn  !objective function
       integer ipr !!output file
-!      common /iopar/ in,ipr
+
 
       character*10 xname(sSCE%npar)
       character*256 format510,format520,format521
       character*256 format610,format630,format660
-!      data xname /'CN2','ESCO','EPCO','aBF','CHN2','CHK2',
-!     &	'sLAG','cWUS',
-!     &'  X9',' X10',' X11',' X12',' X13',' X14',' X15',' X16'/
-      
-!     parx_val,parx_min,parx_max,nopt,maxn,kstop,pcento,iseed
-!     &                 ,ngs,npg,nps,nspl,mings,iniflg,iprint1
+      CHARACTER*256 format2106
+
+
+!!      call MPI_INIT(ierr)
+!!      call MPI_COMM_SIZE(MPI_COMM_WORLD, np, ierr)
+!!      call MPI_COMM_RANK(MPI_COMM_WORLD, pid, ierr)
+      np = sGLB%np    !! # of processors
+      pid = sGLB%pid  !! processor id
+
 !!ASSIGN VARIABLE VALUES FROM STRUCT_OPT
 !        CALL SCEPAR_WRITE(sSCE)
       npar = sSCE%npar
@@ -153,6 +173,7 @@
       xname = sSCE%parName
       iOpt = sSCE%iOpt
       
+      if(pid==0) then
       write (*,*) ' ENTER THE SCEUA SUBROUTINE --- '     
 !!WGS_BEGIN
       write(format510,*)"(/,' CRITERION',",npar,"(a10),/1x,",  !(6x,a4)
@@ -162,27 +183,24 @@
      &       "'BESTF',3x,'WORSTF',3x,'PAR-RNG',1x,",npar,"(a10))"
       write(format630,*)"(i5,1x,i5,3x,i5,3g10.3,",npar,"(f10.4))"
       write(format660,*)"(15x,g10.3,20x,",npar,"(e10.3))"
+      end if
 !!WGS_END      
 
 !c  INITIALIZE VARIABLES
       nloop = 0
       loop = 0
       igs = 0
-!      nopt1 = 12 !!nopt1=8
-!      if (nopt.lt.nopt1) nopt1 = nopt
-!      nopt2 = 12
-!      if (nopt.lt.12) nopt2 = nopt
 
-!c  INITIALIZE RANDOM SEED TO A NEGATIVE INTEGER
-!      iseed1 = iseed!-abs(iseed)
 
 !c  COMPUTE THE TOTAL NUMBER OF POINTS IN INITIAL POPUALTION
       npt = ngs * npg
       ngs1 = ngs
       npt1 = npt
 
+      if(pid==0) then
       write(ipr,400)
       write (*,*) ' ***  Evolution Loop Number ',nloop
+      end if
 
 !c  COMPUTE THE BOUND FOR PARAMETERS BEING OPTIMIZED
       do j = 1, npar
@@ -192,69 +210,165 @@
       end do
 
 !c  COMPUTE THE FUNCTION VALUE OF THE INITIAL POINT
-	fa = functn(npar,parx_val)
+	    fa = functn(npar,parx_val)
 
 !c  PRINT THE INITIAL POINT AND ITS CRITERION VALUE
+      if(pid==0) then
       write(ipr,500)
       write(ipr,format510) xname!(xname(j),j=1,nopt2)  !!510
       write(ipr,format520) fa,parx_val!(parx_val(j),j=1,nopt2)
-!      if (nopt.lt.13) go to 101
-!      write(ipr,530) (xname(j),j=13,nopt)
-!      write(ipr,540) (parx_val(j),j=13,nopt)
-!  101 continue
-
-!c  GENERATE AN INITIAL SET OF npt1 POINTS IN THE PARAMETER SPACE
-!c  IF iniflg IS EQUAL TO 1, SET x(1,.) TO INITIAL POINT a(.)
-!!      if (iniflg .eq. 1) then
-!!        do j = 1, npar
-!!          x(1,j) = parx_val(j)
-!!        end do
-!!        xf(1) = fa
-       
-!c  ELSE, GENERATE A POINT RANDOMLY AND SET IT EQUAL TO x(1,.)
-!!      else
-!!        call getpnt(sSCE,1,xx,unit,parx_min)
-!        call getpnt(nopt,1,iseed1,xx,parx_min,parx_max,unit,parx_min)
-!!        do j=1, npar
-!!          x(1,j) = xx(j)
-!!        end do
-!!        xf(1) = functn(npar,xx)
-!!      end if
-!!      icall = 1
-!!      if (icall .ge. maxn) go to 9000
+      end if
 
 !c  GENERATE npt1-1 RANDOM POINTS DISTRIBUTED UNIFORMLY IN THE PARAMETER
 !c  SPACE, AND COMPUTE THE CORRESPONDING FUNCTION VALUES
 !!----------------------------------------------------
 !! wgs: 11/24/2017: beg
       icall = 0
-      call MPI_INIT(ierr)
-      call MPI_COMM_SIZE(MPI_COMM_WORLD, np, ierr)
-      call MPI_COMM_RANK(MPI_COMM_WORLD, pid, ierr)
+
+      pid0 = 0
+!!----------------------------------------------------------------
+      allocate(sendcnts(0:np-1))
+      allocate(displs(0:np-1))
+      nset0_pp = int(npt1/np)
+      np_set1 = mod(npt1,np)
+
+      sendcnts(0:(np_set1-1))    = (nset0_pp + 1)*npar
+      sendcnts(np_set1:(np-1)) = nset0_pp*npar
+
+      if(pid<np_set1) then
+          recvcnt = (nset0_pp + 1)*npar
+        else 
+          recvcnt = nset0_pp*npar
+      end if
+      allocate(recvbuf(recvcnt))
+
+      displs(0) = 0
+      do i=1,np-1
+        displs(i) = displs(i-1) + sendcnts(i-1)
+      end do
+
+      allocate(sendbuf(npar,npt1))
+!!       allocate(sendbuf1d(npar*npt1))
+      sendbuf = 0.0 !!transpose(x(1:npt1,1:npar))
+!!       sendbuf1d = 0.0
+
+      if(pid==0) then
+        write(*,'(A,I5)')'npt1=',npt1 
+        write(*,'(A,I5)')'nset0_pp=',nset0_pp
+        write(*,'(A,I5)')'np_set1=',np_set1
+        write(*,'(A,100I5)')'sendcnts=',sendcnts(0:np-1)
+        write(*,'(A,100I5)')'displs  =',displs(0:np-1)
+      end if
+
+!!       write(*,'(2(A,I5),A,100F8.1)'), 'rank= ',pid,
+!!      &    ' recvcnt=',recvcnt
+
+      call MPI_SCATTERV(sendbuf, sendcnts, displs, MPI_REAL, 
+     &     recvbuf, recvcnt, MPI_REAL, pid0, MPI_COMM_WORLD, ierr)
+!!---------------------------------------------------------------- 
+      allocate(sendcnts_xf(0:np-1))
+      allocate(displs_xf(0:np-1))
+
+      sendcnts_xf(0:np_set1-1)    = nset0_pp + 1
+      sendcnts_xf(np_set1:np-1) = nset0_pp
+
+      if(pid<np_set1) then
+          recvcnt_xf = nset0_pp + 1
+        else 
+          recvcnt_xf = nset0_pp
+      end if
+      allocate(recvbuf_xf(recvcnt_xf))
+
+      displs_xf(0) = 0
+      do i=1,np-1
+        displs_xf(i) = displs_xf(i-1) + sendcnts_xf(i-1)
+      end do
+
+      if(pid==0) then
+        write(*,'(A,100I5)')'sendcnts_xf=',sendcnts_xf(0:np-1)
+        write(*,'(A,100I5)')'displs_xf  =',displs_xf(0:np-1)
+      end if
+
+!!       write(*,'(2(A,I5),A,100F8.1)'), 'rank= ',pid,
+!!     &    ' recvcnt_xf=',recvcnt_xf
+
+      call MPI_SCATTERV(xf, sendcnts_xf, displs_xf, MPI_REAL, 
+     &     recvbuf_xf, recvcnt_xf, MPI_REAL, pid0, MPI_COMM_WORLD, ierr)
+!!----------------------------------------------------------------      
      
-      mpi_seed = 123456789 + pid*100
-      call srand(mpi_seed) 
-      do isce = pid+1, npt1, np
+C       mpi_seed = 123456789 + pid*100
+C       call srand(mpi_seed)  !!initilize random seed for each processor
+!!       do isce = pid+1, npt1, np
+      nset = recvcnt/npar  !! number of sets of parameters
+      do isce = 1, nset
+
         call getpnt(sSCE,1,xx,unit,parx_min)
-        if (iniflg .eq. 1) then
-          do j = 1, npar
-            xx(j) = parx_val(j)
-          end do
+        if ((iniflg.eq.1).and.(pid.eq.0).and.(isce.eq.1)) then
+          xx(1:npar) = parx_val(1:npar)
         end if
 
         do j = 1, npar
-          x(isce,j) = xx(j)
+C           x(isce,j) = xx(j)
+          recvbuf((isce-1)*npar+j) = xx(j)
         end do
 !        write(*,*)xx
-        xf(isce) = functn(npar,xx)
-        
+!!         xf(isce) = functn(npar,xx)
+        recvbuf_xf(isce) = functn(npar,xx)
+C         write(*,'(3(A,I5),A,F10.3)')'pid=',pid,' nset=',nset,  
+C      &           ' isce=',isce,' recvbuf_xf=',recvbuf_xf(isce)
+C         write(*,'(A,200F10.3)')'recvbuf=',
+C      &           (recvbuf((isce-1)*nset+j),j=1,npar)
 !        write(*,*)isce,x(isce,1:npar),"<>",xf(isce)
-        
-!!        if(pid == 0) then
-           write(*,*)'PARALLEL TEST: npt1/np/pid/isce/mpi_seed=',
-     &                npt1,np,pid,isce,mpi_seed     
-!!        end if
-      end do
+
+      end do !!do isce = 1, nset
+
+      write(*,'(2(A,I5),A,100F10.3)')'pid=',pid,' recvcnt=',recvcnt,
+     & ' recvbuf=',recvbuf
+
+      call MPI_GATHERV(recvbuf, recvcnt, MPI_REAL,  
+     &     sendbuf, sendcnts, displs, MPI_REAL, 
+     &     pid0, MPI_COMM_WORLD, ierr)
+
+      if(pid==0) then
+C         write(*,*)"Shape(sendbuf)=",shape(sendbuf)
+C         write(*,*)"Shape(sendbuf1d)=",shape(sendbuf1d)
+
+        write(*,'(A,100I5)')'recvcnt=',recvcnt
+        write(*,'(A,100I5)')'sendcnts=',sendcnts(0:np-1)
+        write(*,'(A,100I5)')'displs  =',displs(0:np-1)
+        write(*,'(A,100F10.3)')'recvbuf=',recvbuf
+
+C         sendbuf = Reshape(sendbuf1d,(/npar, npt1/))
+        x(1:npt1,1:npar) = transpose(sendbuf)
+      end if
+
+      call MPI_GATHERV(recvbuf_xf, recvcnt_xf, MPI_REAL,  
+     &     xf, sendcnts_xf, displs_xf, MPI_REAL, 
+     &     pid0, MPI_COMM_WORLD, ierr)
+
+      if(pid.eq.0) then
+        open(sSCE%iFO3,file=trim(sGLB%dir_sceout)//'SCEOUT_ALL.dat',
+     &   status="unknown",position = "append")
+        write(sSCE%iFO3,*)"MPI_GATHERV"
+
+        write(format2106, *) "(", npar, "f10.4,A10,","f10.3)"
+        do isce = 1, npt1
+C           write(sSCE%iFO3,format2106)sendbuf(:,isce),"<>",xf(isce)  
+          write(sSCE%iFO3,format2106)x(isce,1:npar),"<>",xf(isce)  
+        end do
+        close(sSCE%iFO3)
+      end if
+
+
+      call MPI_BCAST(x, npt1*npar, MPI_REAL, pid0, 
+     &                  MPI_COMM_WORLD, ierr) 
+      call MPI_BCAST(xf, npt1, MPI_REAL, pid0, 
+     &                  MPI_COMM_WORLD, ierr) 
+!!      call MPI_Barrier(MPI_COMM_WORLD, ierr)
+      deallocate(sendbuf)
+      deallocate(recvbuf)
+      deallocate(recvbuf_xf)
+
       call MPI_FINALIZE(ierr)
 !! wgs: 11/24/2017: end
 !!-----------------------------------------------------
@@ -263,6 +377,16 @@
           npt1 = npt1 - (icall - maxn)
       end if
 
+C       if(pid==0) then
+C         open(sSCE%iFO3,file=trim(sGLB%dir_sceout)//'SCEOUT_ALL.dat',
+C      &   status="unknown",position = "append")
+
+C         write(format2106, *) "(", npar, "f10.4,A10,","f10.3)"
+C         do isce = 1, npt1
+C           write(sSCE%iFO3,format2106)x(isce,1:npar),"<>",xf(isce)  
+C         end do
+C         close(sSCE%iFO3)
+C       end if
 
 !c  ARRANGE THE POINTS IN ORDER OF INCREASING FUNCTION VALUE
    45 call sort(npt1,npar,x,xf)
@@ -275,28 +399,25 @@
       bestf = xf(1)
       worstf = xf(npt1)
 
+
 !c  COMPUTE THE PARAMETER RANGE FOR THE INITIAL POPULATION
       call parstt(sSCE,npt1,x,xnstd,bound,gnrng,ipcnvg)
 
 !c  PRINT THE RESULTS FOR THE INITIAL POPULATION
+      if(pid==0) then
       write(ipr,600)
-      write(ipr,format610) xname(1:npar)!(xname(j),j=1,nopt1)
-!      if (nopt .le. nopt1) go to 201
-!      write(ipr,620) (xname(j),j=nopt1+1,nopt)
-!  201 continue
+      write(ipr,format610) xname(1:npar)
+
       write(ipr,format630) nloop,icall,ngs1,bestf,worstf,gnrng,
-     &               bestx(1:npar)!(bestx(j),j=1,nopt1)
-!      if (nopt .le. nopt1) go to 301
-!      write(ipr,640) (bestx(j),j=nopt1+1,nopt)
-!  301 continue
+     &               bestx(1:npar)
+
       if (ifprint .eq. 1) then
         write(ipr,650) nloop
         do isce = 1, npt1
-          write(ipr,format660) xf(isce),x(isce,1:npar)!(x(isce,j),j=1,nopt1)
-!          if (nopt .le. nopt1) go to 401
-!          write(ipr,640) (x(isce,j),j=nopt1+1,nopt)
+          write(ipr,format660) xf(isce),x(isce,1:npar)
   401   end do
       end if
+      end if !!if(pid==0) then
 
       if (icall .ge. maxn) go to 9000
       if (ipcnvg .eq. 1) go to 9200
@@ -305,7 +426,9 @@
  1000 continue
       nloop = nloop + 1
 
-      write (*,*) ' ***  Evolution Loop Number ',nloop
+      if(pid==0) then
+        write (*,*) ' ***  Evolution Loop Number ',nloop
+      end if !!if(pid==0) then
 
 !c  BEGIN LOOP ON COMPLEXES
       do 3000 igs = 1, ngs1
@@ -323,8 +446,13 @@
 !        do isce = 1, npt1
 !            write(*,*)isce,x(isce,1:nopt),"<>",xf(isce)
 !        end do
+
+!!-----------------------------------------------------------------------
+
+      
 !c  BEGIN INNER LOOP - RANDOM SELECTION OF SUB-COMPLEXES ---------------
-      do 2000 loop = 1, nspl
+       do 2000 loop = 1, nspl
+!!       do 2000 loop = pid+1, nspl, np
 
 !c  CHOOSE A SUB-COMPLEX (nps points) ACCORDING TO A LINEAR
 !c  PROBABILITY DISTRIBUTION
@@ -338,19 +466,9 @@
         end do
         sf(k) = cf2(lcs(k))
       end do
-!!WGS_BEGIN
-!        write(*,*)"SUB-COMPLEX, BEFORE CCE:",npg
-!        do k = 1, npg
-!            write(*,*)k,cx(k,1:nopt),"<>",cf2(k)
-!        end do
-!        write(*,*)"SUB-COMPLEX, BEFORE CCE:"
-!        do k = 1, nps
-!            write(*,*)k,s(k,1:nopt),"<>",sf(k)
-!        end do
- !!WGS_END
+
 !c  USE THE SUB-COMPLEX TO GENERATE NEW POINT(S)
       call cce(sSCE,s,sf,xnstd,icall)
-!      call cce(nopt,nps,s,sf,parx_min,parx_max,xnstd,icall,maxn,iseed1)
 
 !c  IF THE SUB-COMPLEX IS ACCEPTED, REPLACE THE NEW SUB-COMPLEX
 !c  INTO THE COMPLEX
@@ -360,17 +478,7 @@
         end do
         cf2(lcs(k)) = sf(k)
       end do
-!!WGS_BEGIN
-!        write(*,*)"SUB-COMPLEX, AFTER CCE:"
-!        do k = 1, nps
-!            write(*,*)k,s(k,1:nopt),"<>",sf(k)
-!        end do
-!        write(*,*)"SUB-COMPLEX, AFTER CCE:",npg
-!        do k = 1, npg
-!            write(*,*)k,cx(k,1:nopt),"<>",cf2(k)
-!        end do
 
- !!WGS_END
 !c  RE-SORT THE POINTS
 !c  SORT THE POINTS
       call sort(npg,npar,cx,cf2)
@@ -379,10 +487,16 @@
 !            write(*,*)k,cx(k,1:nopt),"<>",cf2(k)
 !        end do
 !c  IF MAXIMUM NUMBER OF RUNS EXCEEDED, BREAK OUT OF THE LOOP
-      if (icall .ge. maxn) go to 2222
+!!      if (icall .ge. maxn) go to 2222
+
+C       write(*,*)'MPI: nspl/np/pid/loop/mpi_seed=',
+C      &                nspl,np,pid,loop,mpi_seed   
 
 !c  END OF INNER LOOP ------------
  2000 continue !!do 2000 loop = 1, nspl
+!!      call MPI_Barrier(MPI_COMM_WORLD, ierr)
+      
+!!------------------------------------------------------------------------
  2222 continue
 
 !c  REPLACE THE NEW COMPLEX INTO ORIGINAL ARRAY x(.,.)
@@ -410,28 +524,36 @@
       bestf = xf(1)
       worstf = xf(npt1)
 
+      if(pid==0) then
+      open(unit=sSCE%iFO3,file=trim(sGLB%dir_sceout)//'SCEOUT_ALL.dat',
+     &   status="unknown",position = "append")
+      do isce = 1, npt1
+        write(sSCE%iFO3,format2106)x(isce,1:npar),"<>",xf(isce)  
+      end do
+      close(sSCE%iFO3)
+      end if !!if(pid==0) then
+      
+
 !c  TEST THE POPULATION FOR PARAMETER CONVERGENCE
       call parstt(sSCE,npt1,x,xnstd,bound,gnrng,ipcnvg)
 
 !c  PRINT THE RESULTS FOR CURRENT POPULATION
       if (mod(nloop,5) .ne. 0) go to 501
-      write(ipr,format610) xname(1:npar)!(xname(j),j=1,nopt1)
-!      if (nopt .le. nopt1) go to 501
-!      write(ipr,620) (xname(j),j=nopt1+1,nopt)
+      if(pid==0) then
+      write(ipr,format610) xname(1:npar)
+      end if !!if(pid==0) then
   501 continue
+
+      if(pid==0) then
       write(ipr,format630) nloop,icall,ngs1,bestf,worstf,gnrng,bestx
 
-!      if (nopt.le.nopt1) go to 601
-!      write(ipr,640) (bestx(j),j=nopt1+1,nopt)
-!  601 continue
       if (ifprint .eq. 1) then
         write(ipr,650) nloop
         do isce = 1, npt1
-          write(ipr,format660) xf(isce),x(isce,1:npar)!(x(isce,j),j=1,nopt1)
-!          if (nopt .le.nopt1) go to 701
-!          write(ipr,640) (x(isce,j),j=nopt1+1,nopt)
+          write(ipr,format660) xf(isce),x(isce,1:npar)
   701   end do
       end if
+      end if !!if(pid==0) then
 
 !c  TEST IF MAXIMUM NUMBER OF FUNCTION EVALUATIONS EXCEEDED
       if (icall .ge. maxn) go to 9000
@@ -465,26 +587,31 @@
 
 !c  SEARCH TERMINATED
  9000 continue
+      if(pid==0) then
       write(ipr,800) maxn,loop,igs,nloop
+      end if
       go to 9999
  9100 continue
+      if(pid==0) then
       write(ipr,810) pcento*100.,kstop
+      end if
       go to 9999
- 9200 write(ipr,820) gnrng*100.
+ 9200 if(pid==0) then
+        write(ipr,820) gnrng*100.
+      end if
  9999 continue
 
 !c  PRINT THE FINAL PARAMETER ESTIMATE AND ITS FUNCTION VALUE
-      sSCE%objOPT = bestf !best_OBF = bestf
-      sSCE%parOPT = bestx !best_PAR = bestx(1:nopt)
+      sSCE%objOPT = bestf 
+      sSCE%parOPT = bestx 
 !      write(*,*)best_OBF, "<>",best_PAR
+      if(pid==0) then
       write(ipr,830)
       write(ipr,format510) xname!(xname(j),j=1,nopt2)
       write(ipr,format520) bestf,bestx!(bestx(j),j=1,nopt2)
       write(sSCE%iFO2,format520) bestf,bestx
-!      if (nopt.lt.13) go to 801
-!      write(ipr,530) (xname(j),j=13,nopt)
-!      write(ipr,540) (bestx(j),j=13,nopt)
-!  801 continue
+      end if !!if(pid==0) then
+
 
 !c  END OF SUBROUTINE SCEUA
       return
@@ -593,16 +720,13 @@
 
 !c  CHECK IF snew SATISFIES ALL CONSTRAINTS
       call chkcst(npar,snew,parx_min,parx_max,ibound)
-!      call chkcst(nopt,nopt,0,snew,parx_min,parx_max,ibound)
-
 
 !c  snew IS OUTSIDE THE BOUND,
 !c  CHOOSE A POINT AT RANDOM WITHIN FEASIBLE REGION ACCORDING TO
 !c  A NORMAL DISTRIBUTION WITH BEST POINT OF THE SUB-COMPLEX
 !c  AS MEAN AND STANDARD DEVIATION OF THE POPULATION AS STD
       if (ibound .ge. 1) then
-	call getpnt(sSCE,2,snew,xnstd,sb)
-!        call getpnt(nopt,2,iseed,snew,parx_min,parx_max,xnstd,sb)
+	       call getpnt(sSCE,2,snew,xnstd,sb)
       end if
 
 
@@ -637,8 +761,6 @@
 !c  ACCORDING TO A NORMAL DISTRIBUTION WITH BEST POINT OF THE SUB-COMPLEX
 !c  AS MEAN AND STANDARD DEVIATION OF THE POPULATION AS STD
  1000 call getpnt(sSCE,2,snew,xnstd,sb)
-! 1000 call getpnt(npar,nopt,iOpt,2,snew,parx_min,parx_max,xnstd,sb)
-! 1000 call getpnt(nopt,2,iseed,snew,parx_min,parx_max,xnstd,sb)
 
 !c  COMPUTE THE FUNCTION VALUE AT THE RANDOM POINT
       fnew = functn(npar,snew)

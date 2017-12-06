@@ -18,5 +18,6 @@
 #PBS -l qos=std
 
 cd /lustre/or-hydra/cades-ccsi/wanggs/models/SWATopt  #$PWD
+rm -rf SWATopt.o*
 mpirun -np 32 ./dist/Debug/GNU-MacOSX/swatopt>&aaa.txt
 

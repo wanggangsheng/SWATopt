@@ -101,7 +101,9 @@
       sGLB%iday_sim = 0  !!SCE
       sGLB%imon_sim = 0  !!SCE
       do curyr = 1, nbyr
-        write (*,1234) curyr
+        if(sGLB%pid.eq.0) then
+          write (*,1234) curyr
+        end if
         
         !! initialize annual variables
         call sim_inityr

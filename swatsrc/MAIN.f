@@ -53,35 +53,50 @@
 
 !!    ~ ~ ~ ~ ~ ~ END SPECIFICATIONS ~ ~ ~ ~ ~ ~
 
+      USE MPI
       USE parm
       USE scemod
       IMPLICIT NONE
       TYPE(sSCE_PAR) sSCE 
-        integer irun,nrun, iwgs, iseed
-        real pcento,fa0, objOPT
-        real, dimension (:), allocatable :: bOBF  !parameter values corresponding bestf
-        real, dimension (:,:), allocatable :: bPAR  !parameter values corresponding bestf
-        real, dimension (:), allocatable :: parOPT  !best of best par sets
-        integer, allocatable:: iwk(:)
+      integer np, pid, ierr
+
+      integer irun,nrun, iwgs, iseed
+      real pcento,fa0, objOPT
+      real, dimension (:), allocatable :: bOBF  !parameter values corresponding bestf
+      real, dimension (:,:), allocatable :: bPAR  !parameter values corresponding bestf
+      real, dimension (:), allocatable :: parOPT  !best of best par sets
+      integer, allocatable:: iwk(:)
         
-        character*50 format_bestx, format_xname
-        real functn, gasdev
+      character*50 format_bestx, format_xname
+      real functn, gasdev
         
-        INTEGER t_start,t_end,t_rate,t_elapse  !!time_start, time_end, time_elapsed
-        INTEGER, DIMENSION(3):: tHMS  !!call subroutine "Sec2HMS" in "WGSfunc.f"
+      INTEGER t_start,t_end,t_rate,t_elapse  !!time_start, time_end, time_elapsed
+      INTEGER, DIMENSION(3):: tHMS  !!call subroutine "Sec2HMS" in "WGSfunc.f"
+
+      call MPI_INIT(ierr)
+      call MPI_COMM_SIZE(MPI_COMM_WORLD, np, ierr)
+      call MPI_COMM_RANK(MPI_COMM_WORLD, pid, ierr)
+
+      sGLB%np = np
+      sGLB%pid = pid
 
       prog = "SWAT Jun 11 2014    VER 2012/Rev 627"
-      write (*,1000)
- 1000 format(1x,"      SWAT2012 MODEL RUN & OPT       ",/,             
-     &          "               Rev. 627              ",/,             
-     &          "      Soil & Water Assessment Tool    ",/) !!,             
-!     &          "               PC Version             ",/,             
-!     &          " Program reading from file.cio . . . executing",/)
+      if(sGLB%pid.eq.0) then
+        write (*,1000)
+      end if 
+ 1000 format(1x," SWAT2012 [Rev. 627] MODEL OPTIMIZATION ",/,                        
+     &          "      Soil & Water Assessment Tool    ",/,
+     &          "    MPI (Parallel Computing) Version  ",/, 
+     &          " Contact: Gangsheng Wang: wangg@ornl.gov  ",/)             
+
       
 !! process input
       call scein(sSCE)  
       
-      write(*,*)'>>>INITIALIZE SWAT VARIABLES...'
+      if(sGLB%pid.eq.0) then
+        write(*,*)'sGLB%np=',sGLB%np, ' sGLB%pid=',sGLB%pid
+        write(*,*)'>>>INITIALIZE SWAT VARIABLES...'
+      end if
       call getallo     
       call allocate_parms
 !!=====================================================================
@@ -98,37 +113,52 @@
 !!=====================================================================
          
 !        call SGLB_WRITE(sGLB)
+      if(sGLB%pid.eq.0) then
         write(*,*)'>>>RUN SWAT with INITIAL PARs...'
-        call system_clock(t_start,t_rate)
+      end if
+      call system_clock(t_start,t_rate)
 !!WGS: BEG
 !!The 1st SWAT-RUN with initial parameters in SWAT input files, NOT included in optimization
-        sGLB%iSWAT = -1
+      sGLB%iSWAT = -1
      	fa0 = functn(sSCE%npar,sSCE%parINI)
+
 !!Now,sGLB%iSWAT = 0; SWAT-RUN "functn" was called above for the 1st time, sGLB%iSWAT=sGLB%iSWAT+1
 !!SCEIN.f, Line 141:  open(319, file=sRead, status='unknown')
 !!sRead = trim(sDIR_SCEOUT)//'SCE-SWAT.chk'
 !!SCEfunctn.f, Line 154:  write(319,*)j,dmon_obs(j),dmon_sim(j)
 !!below, close the file; only if(sGLB%iSWAT.lt.0), write output_sim_vs_obs to the file
-	close(319) 
-	write(*,*)">>>ATTENTION: Finish Writing SCE-SWAT.chk"
+
+      close(319) 
+
+      if(sGLB%pid.eq.0) then
+        write(*,*)">>>ATTENTION: Finish Writing SCE-SWAT.chk"
         write(*,*)
+      end if
 !!WGS: END
-        call system_clock(t_end)!!timer(t_end)
-        t_elapse = (t_end - t_start)/real(t_rate)
-        call Sec2HMS(t_elapse,tHMS)
+      call system_clock(t_end)!!timer(t_end)
+      t_elapse = (t_end - t_start)/real(t_rate)
+      call Sec2HMS(t_elapse,tHMS)
+      if(sGLB%pid.eq.0) then
         write(*,*)">>>Elapsed time for running SWAT = ",tHMS(1),"Hours",
      &            tHMS(2),"Minutes",tHMS(3),"Seconds"
-        ALLOCATE(parOPT(sSCE%npar))
+      end if
+
+      ALLOCATE(parOPT(sSCE%npar))
        
-        call EXECUTE_COMMAND_LINE('mkdir -p '//trim(sGLB%dir_swatio)
+      call EXECUTE_COMMAND_LINE('mkdir -p '//trim(sGLB%dir_swatio)
      &                            //'dirout')
-        call EXECUTE_COMMAND_LINE('cp '//trim(sGLB%dir_swatio)//
+      call EXECUTE_COMMAND_LINE('cp '//trim(sGLB%dir_swatio)//
      &          'output.* '//trim(sGLB%dir_swatio)//'dirout/') 
+      if(sGLB%pid.eq.0) then
         write(*,*)">>>Please check Output.* Files ", 
      &            "that were copied to dirout"  
+      end if
 !!!wgs--------------------------------------------------------
-        if(sGLB%iMODEL.eq.1) then
-        write (*, *) '>>>ENTER SWAT-SCEUA PROGRAM...'
+      if(sGLB%iMODEL.eq.1) then
+        if(sGLB%pid.eq.0) then
+          write (*, *)
+          write (*, *) '>>>ENTER SWAT-SCEUA PROGRAM...'
+        end if
         if(sSCE%nSCE.lt.1) then
             nrun = 1
         else !!if (sSCE%nSCE .gt. 0) then  !!
@@ -141,15 +171,19 @@
         write(format_bestx,*)"(I10,",sSCE%npar+1,"f10.3)"
         
         do irun = 1, nrun
-            if (nrun .ne. 1) iseed = IRAND(0)!iseed = jseed(irun)
-            call srand(iseed)
-            write (*, *) '@ SCE-UA Run Number', irun, 
+C           if (nrun .ne. 1) iseed = IRAND(0)      !iseed = jseed(irun)
+            iseed = IRAND(0) + sGLB%pid*12345678
+          call srand(iseed)
+
+C           if(sGLB%pid.eq.0) then
+            write (*, *) '@ SCE-UA Run Number', irun, ' pid=',pid,
      &        ' Random Seed = ',iseed
-!            CALL SCEPAR_WRITE(sSCE)
-            call sceua(sSCE)   
+C           end if
+!         call SCEPAR_WRITE(sSCE)
+          call sceua(sSCE)   
      
-            bOBF(irun) = sSCE%objOPT
-            bPAR(irun,:) = sSCE%parOPT
+          bOBF(irun) = sSCE%objOPT
+          bPAR(irun,:) = sSCE%parOPT
         end do
         
         call indexx(nrun, bOBF, iwk)  !rank best OBF
@@ -157,10 +191,13 @@
         objOPT = functn(sSCE%npar,parOPT)
 !        write(sSCE%iFO2,*)
        
-        do irun = 1,nrun
+        if(sGLB%pid.eq.0) then
+          do irun = 1,nrun
             write(sSCE%iFO2,format_bestx)irun,bOBF(iwk(irun)),
      &       bPAR(iwk(irun),:)
-        end do
+          end do
+        end if !!if(sGLB%pid.eq.0) 
+
       end if !!if (sGLB%iModel .gt. 0)
 !!---------------------------------------------------------------------      
       do i = 101, 109       !Claire 12/2/09: change 1, 9  to 101, 109.
@@ -172,14 +209,18 @@
       close(sSCE%iFO2)
       close(sSCE%iFO3)  
       
-      write (*,1001)
+      if(sGLB%pid.eq.0) then
+        write (*,1001)
+      end if
  1001 format (/," Execution successfully completed ")
 	
-        iscen=1
+      iscen=1
 !! file for Mike White to review to ensure simulation executed normally
-      open (9999,file=trim(sGLB%dir_swatio)//'fin.fin')
-      write (9999,*) 'Execution successful'
-      close (9999)
+      if(sGLB%pid.eq.0) then
+        open (9999,file=trim(sGLB%dir_swatio)//'fin.fin')
+        write (9999,*) 'Execution successful'
+        close (9999)
+      end if
       
       stop
       end

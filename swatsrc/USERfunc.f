@@ -909,6 +909,8 @@
 !!===========================================================
         SUBROUTINE SGLB_INI_VAR()
             USE parm
+!!             sGLB%np             = 0
+!!             sGLB%pid            = 0
             sGLB%dir_swatio     = ""                             !!dir for swat in & out files
             sGLB%itype_opt      = 0                              !!type of data for calibration; 0-subbasin with flow,1-floodgate,2-Reservoir with volume, 3-subbasin with SWC !!original: iRESFLG
             sGLB%nsub_opt       = 0                              !!# of subbasins included in calibration !!noptsub,icodesub,icoderes,ndaysim,idaysim
@@ -924,8 +926,10 @@
             sGLB%nmon_sim       = 0                              !!# of months simulated,e xcluding warmup
             sGLB%iSWAT          = 0                              !!the ith SWAT simulation run
             sGLB%iModel         = 0                              !!0: run SWAT; >0: SCEUA optimization
-            sGLB%iOBJ          = 0                               !!sGLB%iOBJ  = 0-NSE; 1-MARE; 2-NRMSE
-            sGLB%wOBJ(:)        = 0                              !!wOBJ(1:3),weighting factors for 1st 3 objectives, wOBJ(>3) = wOBJ(3)
+            sGLB%iOBJ           = 0                              !!sGLB%iOBJ  = 0-NSE; 1-MARE; 2-NRMSE
+            sGLB%nyear_sim0     = 0
+            sGLB%iprint         = 0 
+            sGLB%wOBJ(:)        = 0                              !!wOBJ(1:3),weighting factors for 1st 3 objectives, wOBJ(>3) = wOBJ(3)          
             return
         END SUBROUTINE
 !!===========================================================

@@ -32,9 +32,12 @@
         nDay = sGLB%nday_sim0
         nMon = sGLB%nmon_sim !!sGLB%nyear_sim * 12
         iCASE = sGLB%itype_opt
-        write(*,'("SPIN-UP: nYEAR=",I5)')sGLB%nyear_warmup
-        write(*,'("SWATOPT: nYEAR=",I5,"; nMon=",I5,"; nDay=",I5)') 
+
+        if(sGLB%pid.eq.0) then
+            write(*,'("SPIN-UP: nYEAR=",I5)')sGLB%nyear_warmup
+            write(*,'("SWATOPT: nYEAR=",I5,"; nMon=",I5,"; nDay=",I5)') 
      &        sGLB%nyear_sim,nMon,nDay
+        end if
   
         ALLOCATE(dobs(nDay))
         ALLOCATE(dsim(nDay))
@@ -455,21 +458,23 @@
 !!------------------------------------------------------------------
 
         sGLB%iSWAT = sGLB%iSWAT + 1
-        write(format2107, *) "(a1,i5,a25,", sGLB%nsub_opt,"i4)"
-        write(*,format2107)"#",sGLB%iSWAT," SWAT-RUN for SUBBASINs = ",
-     &   sGLB%isub_opt
-        write(format2107, *) "(A7,", npar, "f10.4)"
-        write(*,format2107)">>>PAR=",sGLB%xua
-        write(format2107, *) "(A7,f10.3,A5,",nobj,"f10.3)"
-        write(*,format2107)">>>OBJ=",functn," || ", fobj(1:nobj)
-        write(*,*)
+        if(sGLB%pid.eq.0) then
+            write(format2107, *) "(a1,i5,a25,", sGLB%nsub_opt,"i4)"
+            write(*,format2107)"#",sGLB%iSWAT,
+     &      " SWAT-RUN for SUBBASINs = ",sGLB%isub_opt
+            write(format2107, *) "(A7,", npar, "f10.4)"
+            write(*,format2107)">>>PAR=",sGLB%xua
+            write(format2107, *) "(A7,f10.3,A5,",nobj,"f10.3)"
+            write(*,format2107)">>>OBJ=",functn," || ", fobj(1:nobj)
+            write(*,*)
+        end if !!if(sGLB%pid.eq.0) then
  
         !!sSCE%iFO3 = 20067
-        write(format2106, *) "(", npar, "f10.4,A10,",nobj+1,"f10.3)"
-	write(20067,format2106)sGLB%xua,"<>",functn,fobj(1:nobj)  
-        close(20067)
-        open(unit=20067,file=trim(sGLB%dir_sceout)//'SCEOUT_ALL.dat',
-     &   status="unknown",position = "append")
+!!        write(format2106, *) "(", npar, "f10.4,A10,",nobj+1,"f10.3)"
+!!	write(20067,format2106)sGLB%xua,"<>",functn,fobj(1:nobj)  
+!!        close(20067)
+!!        open(unit=20067,file=trim(sGLB%dir_sceout)//'SCEOUT_ALL.dat',
+!!     &   status="unknown",position = "append")
 
         do j = 1, nrgage  !openwth.f
                 close(100+j)  !SWAT2000: close(9+j)
@@ -514,48 +519,7 @@
 
         RETURN 
       END
-c
-c
-c
-!c==================================================================
-!see "chkcst.f"
-!      subroutine chkcst(nopt,x,parabl,parabu,ibound)
-!!c
-!!c     This subroutine check if the trial point satisfies all
-!!c     constraints.
-!!c
-!!c     ibound - violation indicator
-!!c            = -1 initial value
-!!c            = 0  no violation
-!!c            = 1  violation
-!!c     nopt = number of optimizing variables
-!!c     ii = the ii'th variable of the arrays x, bl, and bu
-!!c
-!!!wgs      implicit REAL*8 (a-h,o-z)
-!      REAL x(nopt),parabl(nopt),parabu(nopt)
-!
-!      ibound = -1
-!
-!!c     Check if explicit constraints are violated
-!
-!      do ii=1, nopt
-!        if (x(ii) .lt. parabl(ii) .or. x(ii) .gt. parabu(ii)) go to 10
-!      end do
-!      if (nopt .eq. 1) go to 9
-!
-!!c     Check if implicit constraints are violated
-!!c     (no implicit constraints for this function)
-!!c
-!!c     No constraints are violated
-!      
-!    9 ibound = 0
-!      return
-!
-!!c     At least one of the constraints are violated
-!     
-!   10 ibound = 1
-!      return
-!      end
+
 
 
 	

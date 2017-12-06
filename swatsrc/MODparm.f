@@ -4,6 +4,8 @@
 !! GANGSHENG WANG - ORNL, MARCH 2015
 !! Global TYPE including Variables for Model Calibration
         TYPE sSCE_GLOBAL  
+            integer np                                      !!# of processors
+            integer pid                                     !!processor id, i.e., rank of processor
             CHARACTER(len=200) dir_swatio                   !!='swatio',directory for swat in & out files
             CHARACTER(len=200) dir_userio                   !!='userio',directory for swat in & out files
             CHARACTER(len=200) dir_obs                      !!='userio/aOBS',directory for observed data files
