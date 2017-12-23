@@ -1,4 +1,5 @@
-# setwd("/Users/wg4/Dropbox (ORNL)/Rcode")
+#setwd("/Users/wg4/Dropbox (ORNL)/Model/SWATopt/aTools/R")
+# source("SWAT_TRB_water_quality_change.R")
 
 # source("wgs.R")
 library(ggplot2)
@@ -9,6 +10,11 @@ path <- getwd()
 print(path)
 
 dir_io <- "SWAT_TRB"
+dir_inout <- c("in_data", "out_data", "out_plot")
+path_io <- paste0(path, "/", dir_io)
+path_in  <- paste0(path_io, "/", dir_inout[1])
+path_out <- paste0(path_io, "/", dir_inout[2])
+path_fig <- paste0(path_io, "/", dir_inout[3])
 
 # color1 <- c("cornflowerblue","darkgreen")
 color1 <- c("cornflowerblue","greenyellow")
@@ -25,20 +31,35 @@ color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","l
 
 ##------------------------------------------------
 # xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")
-# file_par0 <- "SWAT_output_sub_BC1vsBase.csv"
+# file_par0 <- "SWAT_output_sub_BC1vsBase_new.txt"
 
-xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")
-file_par0 <- "SWAT_output_sub_HH3vsBase.csv"
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")
+# file_par0 <- "SWAT_output_sub_HH3vsBase_new.txt"
+
+xlab1 <- paste0("Percent Change in Loading")
+# file_par0 <- "SWAT_output_load.txt"
+file_par0 <- "Rplot_diff_Load_Q.txt"
+
+# xlab1 <- paste0("Percent Change in Concentration")
+# file_par0 <- "SWAT_output_conc.txt"
+
+# for Q
+ymax <- 20
+ybreak <- 5
+
+# ymax <- 100
+# ybreak <- 25
 
 file_name <- str_sub(file_par0,1,nchar(file_par0)-4)
 ##------------------------------------------------
 path_io <- paste0(path, "/", dir_io)
-file_par <- paste0(path_io,"/", file_par0)
+# file_par <- paste0(path_io,"/", file_par0)
+file_par <- paste0(path_out,"/", file_par0)
 
-path_out <- path_io
 
 print(file_par)
-par <- read.table(file_par, sep=",", header=TRUE)
+# par <- read.table(file_par, sep=",", header=TRUE)
+par <- read.table(file_par, sep="", header=TRUE)
 
 names_col <- colnames(par)
 print(names_col)
@@ -58,19 +79,19 @@ print(names_col)
 # }
 
 
-fn <- paste0(path_out,"/",file_name,".pdf")
+fn <- paste0(path_fig,"/",file_name,".pdf")
 pdf(fn)
 
 # coord_flip: horizontal
  sp <- eval(bquote(ggplot(par, aes(x=.(as.name(names_col[2])), y=.(as.name(names_col[4])), fill=.(as.name(names_col[1])))) + 
-    geom_boxplot() + coord_flip(ylim=c(-200,200))))
+    geom_boxplot() + coord_flip(ylim=c(-ymax,ymax))))
 
  # sp <- ggplot(par, aes(x=names_col[2], y=Percent_Change, fill=names_col[1])) + 
  #    geom_boxplot() + coord_flip(ylim=c(-200,200)) 
 
 # Set tick marks on y axis
 # a tick mark is shown on every 5
-sp <- sp + scale_fill_manual(values=color1) + scale_y_continuous(breaks=seq(-200,200,50)) + labs(y=xlab1)
+sp <- sp + scale_fill_manual(values=color1) + scale_y_continuous(breaks=seq(-ymax,ymax,ybreak)) + labs(y=xlab1)
 print(sp)
 print(fn)
 dev.off()

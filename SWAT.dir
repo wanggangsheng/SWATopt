@@ -1,8 +1,8 @@
 !!INITIALIZE SWAT DIRECTORIES
 !!-----------------------------------------------
 !!(1) DIR_SWAT_INPUT_OUTPUT
-/Users/wg4/Dropbox (ORNL)/Model_Run/EFPC/TxtInOut
+/Users/wg4/Documents/WORK/SWATIO_TRB_HH3_new_updateall
 !!-----------------------------------------------
 !!(2) DIR_USER_INPUT_OUTPUT (aOBS,aSCEIN,aSCEOUT)
-/Users/wg4/Dropbox (ORNL)/Model_Run/EFPC/SWATopt/userio
+/Users/wg4/Dropbox (ORNL)/Model/SWATopt/userio
 !!-----------------------------------------------

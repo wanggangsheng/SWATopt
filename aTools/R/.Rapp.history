@@ -1,0 +1,742 @@
+sp <- ggplot(par, aes(x=Variable, y=Percent_Change, fill=Measure)) + #
+    geom_boxplot() + coord_flip(ylim=c(-200,200)) #
+#
+# Set tick marks on y axis#
+# a tick mark is shown on every 5#
+sp + scale_fill_manual(values=c("green","blue")) + scale_y_continuous(breaks=seq(-200,200,50)) + labs(y=paste0("Percent Change\n","BC1 vs Baseline"))
+sp <- ggplot(par, aes(x=Variable, y=Percent_Change, fill=Measure)) + #
+    geom_boxplot() + coord_flip(ylim=c(-200,200)) #
+#
+# Set tick marks on y axis#
+# a tick mark is shown on every 5#
+sp + scale_fill_manual(values=c("green","blue")) + scale_y_continuous(breaks=seq(-200,200,50)) + labs(y=paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline"))
+xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+ylab1 <- "Variable"#
+#
+file_par0 <- "SWAT_output_sub_BC1vsBase.csv"#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)
+xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+ylab1 <- "Variable"#
+#
+file_par0 <- "SWAT_output_sub_BC1vsBase.csv"#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+par <- read.table(file_par, sep=",", header=TRUE)#
+#
+Measure <- unique(par$Measure) #c("Loading", "Concentration")#
+VAR  <- unique(par$VAR) #c("Water", "TSS", "TP","TN","NO3")
+ibrary(ggplot)#
+library(stringr)
+library(ggplot)#
+library(stringr)
+library(ggplot2)#
+library(stringr)
+Measure
+VAR
+VAR  <- unique(par$VAR)
+VAR
+colnames(PAR)
+colnames(par)
+Measure <- unique(par$Measure) #c("Loading", "Concentration")#
+VAR  <- unique(par$Variable) #c("Water", "TSS", "TP","TN","NO3")
+VAR
+fn <- paste0(path_out,"/",file_name,".pdf")
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)
+file_name
+fn <- paste0(path_out,"/",file_name,".pdf")
+fn
+getwd()
+source("SWAT_TRB.R")
+path
+source("SWAT_TRB.R")
+path <- getwd()
+path
+path <- getwd()#
+print(path)
+source("SWAT_TRB.R")
+library(ggthemes)
+source("SWAT_TRB.R")
+# source("wgs.R")#
+library(ggplot2)#
+library(ggthemes)#
+library(stringr)#
+rm(list=ls())#
+path <- getwd()#
+print(path)#
+#
+dir_io <- "SWAT_TRB"#
+#
+# color1 <- c("cornflowerblue","darkgreen")#
+color1 <- c("cornflowerblue","greenyellow")#
+color2 <- c("cornflowerblue","blue","greenyellow","darkgreen")#
+color3 <- c("cyan","cornflowerblue","blue","greenyellow","green","darkgreen")#
+color4 <- c("cyan","skyblue","cornflowerblue","blue","greenyellow","lightgreen","green","darkgreen")#
+color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","lightgreen","yellow","green","darkgreen")#
+# cex.axis2 <- 0.7#
+# color_use <- color10#
+##------------------------------------------------#
+#
+##------------------------------------------------#
+xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+file_par0 <- c("TRB_Loading.csv","TRB_Concentration.csv")
+file_par0
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)
+file_name
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)
+par <- read.table(file_par, sep=",", header=TRUE)
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)
+Load
+Conc
+names_col <- colnames(Load)#
+print(names_col)
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)
+nVar <- length(names_col) - 2#
+Var <- names_col[3, 2+ nVar]
+nVar <- length(names_col) - 2#
+Var <- names_col[3:(2+ nVar)]
+VAr
+Var
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+file_par0 <- c("TRB_Loading.csv","TRB_Concentration.csv")#
+nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+Var
+i <- 1
+data2 <- rbind(Load[c(1:nCol0,nCol0+i),])
+data2
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i)])
+data2
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i)], Conc[,c(1:nCol0,nCol0+i)])
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+colnames(Load)
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i)], Conc[,c(1:nCol0,nCol0+i)])
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i)], Conc[,c(1:nCol0,nCol0+
+fads
+adfsafda
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+names_col <- colnames(Load)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+colnames(Load)
+colnames(Conc)
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i)], Conc[,c(1:nCol0,nCol0+i)])
+data2
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+Load$Matrics <- "Loading"#
+Conc$Matrics <- "Concentration"
+Load
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+Load$Matrics <- "Loading"#
+Conc$Matrics <- "Concentration"#
+#
+names_col <- colnames(Load)#
+nCol_tot <- length(names_col)#
+print(names_col)#
+#
+nVar <- length(names_col) - nCol0#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+Var
+nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+Load$Matrics <- "Loading"#
+Conc$Matrics <- "Concentration"#
+#
+names_col <- colnames(Load)#
+nCol_tot <- length(names_col)#
+print(names_col)#
+#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+Var
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i,nCol_tot)], Conc[,c(1:nCol0,nCol0+i,nCol_tot)])
+data2
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(names_col[4])), y=.(as.name(names_col[3])), fill=.(as.name(names_col[1])))) + #
+    geom_boxplot()
+))
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(names_col[4])), y=.(as.name(names_col[3])), fill=.(as.name(names_col[1])))) + #
+    geom_boxplot()))
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(names_col[4])), y=.(as.name(names_col[3])), fill=.(as.name(names_col[1])))) + geom_boxplot())) ##+ coord_flip(ylim=c(-200,200))))
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i,nCol_tot)], Conc[,c(1:nCol0,nCol0+i,nCol_tot)])
+data2
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(names_col[4])), y=.(as.name(names_col[3])), fill=.(as.name(names_col[1])))) + geom_boxplot()))
+sp <- ggplot(data2, aes(x=Matrics, y=Water, fill=Scenario) + geom_boxplot()
+dlajf;d
+sp <- ggplot(data2, aes(x=Matrics, y=Water, fill=Scenario)) + geom_boxplot()
+ggplot(par, aes(x=Matrics, y=Water, fill=Scenario)) + geom_boxplot()
+ggplot(data2, aes(x=Matrics, y=Water, fill=Scenario)) + geom_boxplot()
+setwd("/Users/wg4/Dropbox (ORNL)/Rcode")
+library(ggplot2)#
+library(ggthemes)#
+library(stringr)#
+rm(list=ls())#
+path <- getwd()#
+print(path)#
+#
+dir_io <- "SWAT_TRB"#
+#
+# color1 <- c("cornflowerblue","darkgreen")#
+color1 <- c("cornflowerblue","greenyellow")#
+color2 <- c("cornflowerblue","blue","greenyellow","darkgreen")#
+color3 <- c("cyan","cornflowerblue","blue","greenyellow","green","darkgreen")#
+color4 <- c("cyan","skyblue","cornflowerblue","blue","greenyellow","lightgreen","green","darkgreen")#
+color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","lightgreen","yellow","green","darkgreen")#
+# cex.axis2 <- 0.7#
+# color_use <- color10#
+##------------------------------------------------#
+#
+##------------------------------------------------#
+xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+file_par0 <- c("TRB_Loading.csv","TRB_Concentration.csv")#
+nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+Load <- read.table(file_par[1], sep=",", header=TRUE)#
+Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+Load$Matrics <- "Loading"#
+Conc$Matrics <- "Concentration"#
+#
+names_col <- colnames(Load)#
+nCol_tot <- length(names_col)#
+print(names_col)#
+#
+Var <- names_col[(nCol0+1):(nCol0+ nVar)]
+Var
+i <- 1
+data2 <- rbind(Load[,c(1:nCol0,nCol0+i,nCol_tot)], Conc[,c(1:nCol0,nCol0+i,nCol_tot)])
+data 2
+data2
+colnames(data2)
+ggplot(data2, aes(x=Matrics, y=Water, fill=Scenario)) + geom_boxplot()
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(names_col[4])), y=.(as.name(names_col[3])), fill=.(as.name(names_col[1])))) + geom_boxplot()))
+print(sp)
+i
+Var
+data2_colnames <- colnames(data2)
+sp <- eval(bquote(ggplot(data2, aes(x=.(as.name(data2_colnames[4])), y=.(as.name(data2_colnames[3])), fill=.(as.name(data2_colnames[1])))) + geom_boxplot())) #
+#
+	print(sp)
+source("SWAT_TRB_Load_Conc.R")
+library(ggplot2)#
+library(ggthemes)#
+library(stringr)#
+rm(list=ls())#
+path <- getwd()#
+print(path)#
+#
+dir_io <- "SWAT_TRB"#
+#
+# color1 <- c("cornflowerblue","darkgreen")#
+# color1 <- c("cornflowerblue","greenyellow")#
+color1 <- c("gray", "cyan","greenyellow")#
+# color2 <- c("cornflowerblue","blue","greenyellow","darkgreen")#
+# color3 <- c("cyan","cornflowerblue","blue","greenyellow","green","darkgreen")#
+# color4 <- c("cyan","skyblue","cornflowerblue","blue","greenyellow","lightgreen","green","darkgreen")#
+# color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","lightgreen","yellow","green","darkgreen")#
+# cex.axis2 <- 0.7#
+# color_use <- color10#
+##------------------------------------------------#
+#
+##------------------------------------------------#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+file_par0 <- "TRB_landuse.csv"#
+# nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+# nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+Landuse <- read.table(file_par, sep=",", header=TRUE)
+Landuse
+file_par0 <- "TRB_Landuse_compare.csv"#
+# nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+# nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+Landuse <- read.table(file_par, sep=",", header=TRUE)
+fn <- paste0(path_out,"/",file_name".pdf")
+fn <- paste0(path_out,"/",file_name,".pdf")#
+	pdf(fn)
+ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar()
+ggplot(Landuse, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar()
+data2 <- read.table(file_par, sep=",", header=TRUE)
+data2
+ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar()
+library(ggplot2)#
+library(ggthemes)#
+library(stringr)#
+rm(list=ls())#
+path <- getwd()#
+print(path)#
+#
+dir_io <- "SWAT_TRB"#
+#
+# color1 <- c("cornflowerblue","darkgreen")#
+# color1 <- c("cornflowerblue","greenyellow")#
+color1 <- c("gray", "cyan","greenyellow")#
+# color2 <- c("cornflowerblue","blue","greenyellow","darkgreen")#
+# color3 <- c("cyan","cornflowerblue","blue","greenyellow","green","darkgreen")#
+# color4 <- c("cyan","skyblue","cornflowerblue","blue","greenyellow","lightgreen","green","darkgreen")#
+# color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","lightgreen","yellow","green","darkgreen")#
+# cex.axis2 <- 0.7#
+# color_use <- color10#
+##------------------------------------------------#
+#
+##------------------------------------------------#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+file_par0 <- "TRB_Landuse_compare.csv"#
+# nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+# nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+data2 <- read.table(file_par, sep=",", header=TRUE)#
+# Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+# Matrics <- c("Loading","Concentration")#
+# Load$Matrics <- Matrics[1]#
+# Conc$Matrics <- Matrics[2]#
+#
+# names_col <- colnames(Load)#
+# nCol_tot <- length(names_col)#
+# print(names_col)#
+#
+# Var <- names_col[(nCol0+1):(nCol0+ nVar)]#
+# ##            Water, TSS, TP, TN, NO3#
+# ylim_max <- c(1500, 1500, 4,  15, 15)#
+# units1 <- c("mm", "kg/ha")#
+#
+# for(i in 1:nVar){#
+	fn <- paste0(path_out,"/",file_name,".pdf")#
+	pdf(fn)#
+#
+	sp <- ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar()
+fn <- paste0(path_out,"/",file_name,".pdf")#
+pdf(fn)#
+#
+sp <- ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar()	#
+#
+print(sp)#
+print(fn)#
+dev.off()
+ggplot(data2, aes(x=Landuse, y=Percent_Area)) + geom_bar(aes(fill=Scenario))
+raw <- read.csv("http://pastebin.com/raw.php?i=L8cEKcxS",sep=",")#
+raw[,2]<-factor(raw[,2],levels=c("Very Bad","Bad","Good","Very Good"),ordered=FALSE)#
+raw[,3]<-factor(raw[,3],levels=c("Very Bad","Bad","Good","Very Good"),ordered=FALSE)#
+raw[,4]<-factor(raw[,4],levels=c("Very Bad","Bad","Good","Very Good"),ordered=FALSE)
+raw
+raw=raw[,c(2,3,4)] # getting rid of the "people" variable as I see no use for it#
+#
+freq=table(col(raw), as.matrix(raw)) # get the counts of each factor level
+Names=c("Food","Music","People")     # create list of names#
+data=data.frame(cbind(freq),Names)   # combine them into a data frame#
+data=data[,c(5,3,1,2,4)]             # sort columns#
+#
+# melt the data frame for plotting#
+data.m <- melt(data, id.vars='Names')#
+#
+# plot everything#
+ggplot(data.m, aes(Names, value)) +   #
+  geom_bar(aes(fill = variable), position = "dodge", stat="identity")
+ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar(stat="identity")
+data2 <- read.table(file_par, sep=",", header=TRUE)#
+# Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+# Matrics <- c("Loading","Concentration")#
+# Load$Matrics <- Matrics[1]#
+# Conc$Matrics <- Matrics[2]#
+#
+# names_col <- colnames(Load)#
+# nCol_tot <- length(names_col)#
+# print(names_col)#
+#
+# Var <- names_col[(nCol0+1):(nCol0+ nVar)]#
+# ##            Water, TSS, TP, TN, NO3#
+# ylim_max <- c(1500, 1500, 4,  15, 15)#
+# units1 <- c("mm", "kg/ha")#
+#
+# for(i in 1:nVar){#
+fn <- paste0(path_out,"/",file_name,".pdf")#
+pdf(fn)#
+#
+sp <- ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar(stat="identity")	#
+#
+print(sp)#
+print(fn)#
+dev.off()
+sp <- ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar(position="dodge",stat="identity")	#
+#
+print(sp)#
+print(fn)#
+dev.off()
+library(ggplot2)#
+library(ggthemes)#
+library(stringr)#
+rm(list=ls())#
+path <- getwd()#
+print(path)#
+#
+dir_io <- "SWAT_TRB"#
+#
+# color1 <- c("cornflowerblue","darkgreen")#
+# color1 <- c("cornflowerblue","greenyellow")#
+color1 <- c("gray", "cyan","greenyellow")#
+# color2 <- c("cornflowerblue","blue","greenyellow","darkgreen")#
+# color3 <- c("cyan","cornflowerblue","blue","greenyellow","green","darkgreen")#
+# color4 <- c("cyan","skyblue","cornflowerblue","blue","greenyellow","lightgreen","green","darkgreen")#
+# color5 <- c("cyan","skyblue","darkcyan","cornflowerblue","blue","greenyellow","lightgreen","yellow","green","darkgreen")#
+# cex.axis2 <- 0.7#
+# color_use <- color10#
+##------------------------------------------------#
+#
+##------------------------------------------------#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy BC1 vs Pre-bioenergy Baseline")#
+file_par0 <- "TRB_Landuse_compare.csv"#
+# nCol0 <- 2  ## first 2 columns: Scenario, sub/rch#
+# nVar <- 5#
+# xlab1 <- paste0("Percent Change\n","Post-bioenergy HH3 vs Pre-bioenergy Baseline")#
+# file_par0 <- "SWAT_output_sub_HH3vsBase.csv"#
+#
+file_name <- str_sub(file_par0,1,nchar(file_par0)-4)#
+##------------------------------------------------#
+path_io <- paste0(path, "/", dir_io)#
+file_par <- paste0(path_io,"/", file_par0)#
+#
+path_out <- path_io#
+#
+print(file_par)#
+data2 <- read.table(file_par, sep=",", header=TRUE)#
+# Conc <- read.table(file_par[2], sep=",", header=TRUE)#
+#
+## add a column: Matrics (Loading/Concentration),#
+# Matrics <- c("Loading","Concentration")#
+# Load$Matrics <- Matrics[1]#
+# Conc$Matrics <- Matrics[2]#
+#
+# names_col <- colnames(Load)#
+# nCol_tot <- length(names_col)#
+# print(names_col)#
+#
+# Var <- names_col[(nCol0+1):(nCol0+ nVar)]#
+# ##            Water, TSS, TP, TN, NO3#
+# ylim_max <- c(1500, 1500, 4,  15, 15)#
+# units1 <- c("mm", "kg/ha")#
+#
+# for(i in 1:nVar){#
+fn <- paste0(path_out,"/",file_name,".pdf")#
+pdf(fn)#
+#
+sp <- ggplot(data2, aes(x=Landuse, y=Percent_Area, fill=Scenario)) + geom_bar(position="dodge",stat="identity")	#
+#
+print(sp)#
+print(fn)#
+dev.off()
+source("SWAT_TRB_Landuse.R")
+library(plotrix)
+d = t(matrix( c(7,3,2,3,2,2,852,268,128,150,#
+                                127,74,5140,1681,860,963,866,#
+                                470,26419,8795,4521,5375,4514,2487),#
+                            nrow=6, ncol=4 ))#
+colnames(d)=c("A", "B", "C", "D", "E", "F")
+d
+d=rbind(NA,d)
+d
+a = gap.barplot(as.matrix(d), #
+                gap=c(9600,23400), #
+                ytics=c(0,3000,6000,9000,24000,25200,26400),#
+                xaxt='n') # disable the default x-axis
+print(a)
+require(plotrix)#
+#
+d = t(matrix( c(7,3,2,3,2,2,852,268,128,150,#
+                127,74,5140,1681,860,963,866,#
+                470,26419,8795,4521,5375,4514,2487),#
+              nrow=6, ncol=4 ))#
+#
+# Hack for grouping (leaves the extra space at the end)#
+e = as.vector(rbind(d, rep(NA, 6)))[1:29]#
+#
+a = gap.barplot(ceiling(as.matrix(e/60)), #
+                gap=c(160,390),#
+                col=rep(c(grey.colors(4), 1), 6),#
+                #space=rep(c(rep(0,3), 1), 6),#
+                ytics=c(0,50,100,150,400,420,440),#
+                xaxt='n') # disable the default x-axis#
+#
+xticks=c(2.5, 7.5, 12.5, 17.5, 22.5, 27.5)#
+#
+# add axis labels at mean position#
+axis(1, at=xticks, LETTERS[1:6] )#
+#
+legend("topright", LETTERS[7:10],#
+       bty="n",  #
+       fill=grey.colors(4))
+source("SWAT_TRB_change_water_quality.R")
+source("SWAT_TRB_Load_Conc.R")
+ls
+setwd("/Users/wg4/Dropbox (ORNL)/Model/SWATopt/atools/R")
+getwd()
+source("SWAT_TRB_water_quality_change.R")
+source("SWAT_TRB_Load_Conc.R")
+setwd("/Users/wg4/Dropbox (ORNL)/Rcode")
+rm(list=ls())#
+# source("wgs.R")#
+datafile <- "sum_test.dat"#
+# datafile <- "SWAT_SPARROW_TP.txt"#
+data1 <- read.table(datafile,header = FALSE)
+rm(list=ls())#
+# source("wgs.R")#
+datafile <- "sum_of_numbers.dat"#
+# datafile <- "SWAT_SPARROW_TP.txt"#
+data1 <- read.table(datafile,header = FALSE)
+data1
+source("sum_test.R")
+rm(list=ls())#
+source("wgs.R")#
+datafile <- "sum_of_numbers.dat"#
+vElements <- read.table(datafile,header = FALSE)
+vElements
+rm(list=ls())#
+source("wgs.R")#
+datafile <- "sum_of_numbers.dat"#
+data <- read.table(datafile,header = FALSE)#
+vElements <- data[,1]#
+nElement <- length(vElements)#
+print(vElements)#
+print(nElement)
+source("sum_test.R")
+vElements[1]
+vElements[2]
+source("sum_test.R")
+cat("\014")
+source("sum_test.R")
+setwd("/Users/wg4/Dropbox (ORNL)/Rcode")
+source("sum_test.R")
+setwd("/Users/wg4/Dropbox (ORNL)/Rcode")
+getwd()
+source("sum_tes.R")
+source("sum_test.R")
+library(boot)#
+n <- 1000#
+X1 <- data.frame(matrix(runif(8 * n), nrow = n))#
+X2 <- data.frame(matrix(runif(8 * n), nrow = n))
+X1
+Y
+X2
+x <- sobol(model = sobol.fun, X1 = X1, X2 = X2, order = 2, nboot = 100)
+library("sensitivity")
+x <- sobol(model = sobol.fun, X1 = X1, X2 = X2, order = 2, nboot = 100)
+print(x)
+plot(x)
+x$original
+x
+x[[3]]
+x[[1]]
+x
+x[[2]]
+x[[3]]
+x[[4]]
+x[[5]]
+x[[6]]
+x[[7]]
+x[[8]]
+x[[9]]
+x[[10]]
+x[[10]]$original
+sum(x[[10]]$original)
+sum(x[[10]]$original[1:8])
+sum(x[[10]]$original[2:9])
+sa1<- sobol2007(model = NULL, X1, X2, nboot = 0, conf = 0.95)
+print(sa1)
+sa1
+tell(sa1, y = NULL, return.var = NULL, ...)
+tell(sa1, y = NULL, return.var = NULL)
+sa1 <- sobol2007(model = sobol.fun, X1, X2, nboot = 100)
+print(sa1)
+sa1[[10]]
+sa1[[11]]
+sa1[[10]]$original
+sum(sa1[[10]]$original)
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/nCountyWithSpecies_old.csv"
+par <- read.table(fn, sep=",", header=TRUE)
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+rm(list = ls())
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+rm(list = ls())
+par <- read.table(file=fn, sep=",", header=TRUE)
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/Rplot_nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+boxplot(X.difference~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties")
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/Rplot_nCountyWithSpecies_old.csv"
+par <- read.table(file=fn, sep=",", header=TRUE)
+par
+boxplot(Difference~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties")
+boxplot(Difference,data=par, xlab="Group", ylab="% Change in Ocuppied Counties")
+boxpflot(BC40~Category,data=par)
+boxplot(BC40~Category,data=par)
+boxplot(Counties_2014~Category,data=par)
+fn <-"/Users/wg4/Dropbox (ORNL)/Conf/ESA/ESA2017/Rplot_nCountyWithSpecies_old.csv"#
+par <- read.table(file=fn, sep=",", header=TRUE)#
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties")
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties", col=c("cornflowerblue",greenyellow","darkgreen"))
+color1 <- c("cornflowerblue",greenyellow","darkgreen")
+color1 <- c("cornflowerblue","greenyellow","darkgreen")#
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties", col=color1)
+color1 <- c("darkgreen","greenyellow","cornflowerblue")#
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties (BC1 vs 2014)", col=color1)
+color1 <- c("darkgreen","greenyellow","cornflowerblue")#
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties (BC1 vs. 2014)", col=color1)
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties (BC1 vs. 2014)", col=color1,cex.axis=2)
+boxplot(Difference100~Category,data=par, xlab="Group", ylab="% Change in Ocuppied Counties (BC1 vs. 2014)", col=color1,cex.axis=1.5,cex.lab=1.5)
+boxplot(Difference100~Category,data=par, xlab="Group", #
+	ylab="% Change in Ocuppied Counties/n(BC1 vs. 2014)", #
+	col=color1,cex.axis=1.5,cex.lab=1.5)
+boxplot(Difference100~Category,data=par, xlab="Group", #
+	ylab="% Change in Ocuppied Counties\n(BC1 vs. 2014)", #
+	col=color1,cex.axis=1.5,cex.lab=1.5)
+boxplot(Difference100~Category,data=par, xlab="Group", #
+	ylab="% Change in Ocuppied Counties (BC1 vs. 2014)", #
+	col=color1,cex.axis=1.5,cex.lab=1.5)
+boxplot(Difference100~Category,data=par, xlab="Group", #
+	ylab="%Change in Occupied Counties (BC1 vs. 2014)", #
+	col=color1,cex.axis=1.5,cex.lab=1.5)
+boxplot(Difference100~Category,data=par, xlab="Group", #
+	ylab="%Change in Occupied Counties (BC1 vs. 2014)", #
+	col=color1,cex.axis=1.5,cex.lab=1.5, ylim=c(-1.5,1.5))
+setwd("/Users/wg4/Dropbox (ORNL)/Model/SWATopt/aTools/R")
+source("TRB_hru.R")
+source("TRB_hru.R")
+getwd()
+source("TRB_dNPS_Conc_new.R")
+source("TRB_dNPS_Load_new.R")
+source("TRB_dNPS_plot.R")
+source("TRB_dNPS_dLULC.R")
+source("TRB_dNPS_dLULC_plot.R")

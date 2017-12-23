@@ -40,6 +40,8 @@ res1 <- cor.mtest(var, 0.95)
 
 col_usr <- c("darkgreen","green","greenyellow","yellow","gray","antiquewhite","skyblue","cornflowerblue","blue","darkblue")
 # col_usr <- c("green4","greenyellow","gray","skyblue","blue")
+## to be delete
+corrplot.mixed(corr,p.mat = res1[[1]],insig="blank",col=col_usr)
 
 pdf("./fig/TRB_VAR_CORR.pdf")
 corrplot.mixed(corr,p.mat = res1[[1]],insig="blank",col=col_usr)

@@ -1,5 +1,5 @@
 !!nsub    nbyr        		  iyear0    iprint(0-month, 1-day, 2-year)	        iModel(0-SWAT,1-SWAT_OPT)
-55		  29				  1985		0									    0
+55		  2				  1985		0									    0
 !!npar	  nyear_spinup		  itype_opt icode_sub icode_re  nsub_opt  rOBJ	    wOBJ1	  wOBJ2     wOBJ3
 39		  1					  20   	    3         9999      55 		  0 	    1.00      1.00      1.00 
 !!isub_opt:                           
