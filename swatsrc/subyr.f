@@ -88,15 +88,17 @@
           do ii = 1, itotb
             pdvb(ii) = pdvab(ipdvab(ii))
           end do
-          write (31,1000) sb, subgis(sb), iyr, sub_km(sb),              
-     &                                    (pdvb(ii), ii = 1, itotb), sb
+          write (31,1000) sb,',',subgis(sb),',',iyr,',',sub_km(sb),',',              
+     &                                (pdvb(ii),',', ii = 1, itotb), sb
         else
-          write (31,1000) sb, subgis(sb), iyr, sub_km(sb),              
-     &                                    (pdvab(ii), ii = 1, msubo), sb
+          write (31,1000) sb,',',subgis(sb),',',iyr,',',sub_km(sb),',',              
+     &                               (pdvab(ii),',', ii = 1, msubo), sb
         end if
       end do
 
       return
 !1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,21f10.3)
- 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18f10.3,1x,e10.5,3e10.3,i6)
+!! 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18f10.3,1x,e10.5,3e10.3,i6)
+ 1000 format ('BIGSUB,',i4,a1,1x,i8,a1,1x,i4,a1,e10.5,a1,
+     &          18(f10.3,a1),1x,e10.5,a1,3(e10.3,a1),i6)
       end 

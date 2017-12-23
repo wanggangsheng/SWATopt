@@ -201,26 +201,26 @@
           end do
 
           if (iscen == 1 .and. isproj == 0) then
-          write (7,5000) j, subgis(j), mo_chk, rch_dakm(j),           
-     &                                    (pdvr(ii), ii = 1, itotr), j
+          write (7,5000) j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',           
+     &                                 (pdvr(ii),',', ii = 1, itotr), j
           else if (isproj == 1) then
-          write (20,5000) j, subgis(j), mo_chk, rch_dakm(j),            
-     &                                    (pdvr(ii), ii = 1, itotr), j
+          write (20,5000)j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',           
+     &                                 (pdvr(ii),',', ii = 1, itotr), j
           else if (iscen == 1 .and. isproj == 2) then 
-          write (7,6000) j, subgis(j), mo_chk, rch_dakm(j),             
-     &                              (pdvr(ii), ii = 1, itotr),iyr  
+          write (7,6000) j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',           
+     &                                 (pdvr(ii),',', ii = 1, itotr),iyr  
           endif
         else
  !  increase to 44 in loops below from 42 gsm 10/17/2011      
           if (iscen == 1 .and. isproj == 0) then
-          write (7,5000) j, subgis(j), mo_chk, rch_dakm(j),             
-     &                                (pdvar(ii), ii = 1, 44), j    
+          write (7,5000) j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',             
+     &                                (pdvar(ii),',', ii = 1, 44), j    
           else if (isproj == 1) then
-          write (20,5000) j, subgis(j), mo_chk, rch_dakm(j),            
-     &                                (pdvar(ii), ii = 1, 44), j    
+          write (20,5000)j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',             
+     &                                (pdvar(ii),',', ii = 1, 44), j     
           else if (iscen == 1 .and. isproj == 2) then
-          write (7,6000) j, subgis(j), mo_chk, rch_dakm(j),             
-     &                              (pdvar(ii), ii = 1, 44), iyr     
+          write (7,6000) j,',',subgis(j),',',mo_chk,',',rch_dakm(j),',',             
+     &                                (pdvar(ii),',', ii = 1, 44), iyr     
 
           endif
         end if
@@ -258,6 +258,6 @@
 !!SCE_END
       
       return
- 5000 format ('REACH ',i4,1x,i8,1x,i5,47e12.4,i6)
- 6000 format ('REACH ',i4,1x,i8,1x,i5,47e12.4,1x,i4)
+ 5000 format ('REACH, ',i4,a1,1x,i8,a1,1x,i5,a1,47(e12.4,a1),i6)
+ 6000 format ('REACH, ',i4,a1,1x,i8,a1,1x,i5,a1,47(e12.4,a1),1x,i4)
       end

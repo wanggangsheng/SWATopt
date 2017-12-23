@@ -120,7 +120,6 @@
      &            tHMS(2),"Minutes",tHMS(3),"Seconds"
         ALLOCATE(parOPT(sSCE%npar))
         
-!        read(*,*) 
         call EXECUTE_COMMAND_LINE('mkdir -p '//trim(sGLB%dir_swatio)
      &                            //'dirout')
         call EXECUTE_COMMAND_LINE('cp '//trim(sGLB%dir_swatio)//

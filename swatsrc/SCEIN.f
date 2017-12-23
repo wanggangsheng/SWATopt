@@ -80,7 +80,7 @@
         sGLB%dir_scein  = sDIR_SCEIN
         sGLB%dir_sceout = sDIR_SCEOUT
         
-        sRead = 'mkdir '//quote//trim(sGLB%dir_sceout)//quote !!quote the directory as the directory may contain space
+        sRead = 'mkdir -p '//quote//trim(sGLB%dir_sceout)//quote !!quote the directory as the directory may contain space
         CALL system(sRead)
 
         close(1)    

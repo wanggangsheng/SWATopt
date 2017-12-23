@@ -234,10 +234,10 @@
 !        write(*,*)isce,x(isce,1:npar),"<>",xf(isce)
         
         icall = icall + 1
-        if (icall .ge. maxn) then
-          npt1 = isce
-          go to 45
-        end if
+         if (icall .ge. maxn) then
+           npt1 = isce
+           go to 45
+         end if
       end do
 
 !c  ARRANGE THE POINTS IN ORDER OF INCREASING FUNCTION VALUE
@@ -578,7 +578,6 @@
 !c  AS MEAN AND STANDARD DEVIATION OF THE POPULATION AS STD
       if (ibound .ge. 1) then
 	call getpnt(sSCE,2,snew,xnstd,sb)
-!        call getpnt(nopt,2,iseed,snew,parx_min,parx_max,xnstd,sb)
       end if
 
 

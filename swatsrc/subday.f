@@ -99,10 +99,12 @@
         end do
 !!SCE_BEGIN
         if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
-        if (icalen == 0) write(31,1000)sb, subgis(sb), iida, sub_km(sb),
-     &                                    (pdvb(ii), ii = 1, itotb), sb
-        if (icalen == 1) write(31,1001)sb, subgis(sb), i_mo, icl(iida), 
-     &         iyr, sub_km(sb), (pdvb(ii), ii = 1, itotb), sb
+        if (icalen == 0) write(31,1000)sb,',', subgis(sb),',', 
+     &                          iida,',', sub_km(sb),',',
+     &                          (pdvb(ii),',', ii = 1, itotb), sb
+        if (icalen == 1) write(31,1001)sb,',', subgis(sb),',', 
+     &                          i_mo,',', icl(iida),',', 
+     &       iyr,',', sub_km(sb),',', (pdvb(ii),',', ii = 1, itotb), sb
  
 !!    added for binary files 3/25/09 gsm line below and write (66666
 	      if (ia_b == 1) then
@@ -112,10 +114,12 @@
         end if !!if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
       else
         if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
-        if (icalen == 0)write(31,1000) sb, subgis(sb), iida, sub_km(sb),
-     &                                (pdvab(ii), ii = 1, msubo), sb
-        if (icalen == 1)write(31,1001) sb, subgis(sb), i_mo, icl(iida), 
-     &         iyr, sub_km(sb), (pdvab(ii), ii = 1, msubo), sb
+        if (icalen == 0)write(31,1000) sb,',', subgis(sb),',', 
+     &                          iida,',', sub_km(sb),',',
+     &                          (pdvab(ii),',', ii = 1, msubo), sb
+        if (icalen == 1)write(31,1001) sb,',', subgis(sb),',', 
+     &                          i_mo,',', icl(iida),',', 
+     &     iyr,',', sub_km(sb),',', (pdvab(ii),',', ii = 1, msubo), sb
 !!    added for binary files 3/25/09 gsm line below and write (6666
 	      if (ia_b == 1) then
                 write(66666) sb, subgis(sb), iida, sub_km(sb),        
@@ -129,7 +133,12 @@
 !     changed for jennifer b.
 !1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18f10.3)
 !1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,21f10.3)
- 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18e10.3,1x,e10.5,3e10.3,i6)
- 1001 format('BIGSUB',i4,1x,i8,1x,i2,1x,i2,1x,i4,1x,e10.5,18e10.3,1x,   
-     &  e10.5, 3e10.3,i6)
+! 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18e10.3,1x,e10.5,3e10.3,i6)
+! 1001 format('BIGSUB',i4,1x,i8,1x,i2,1x,i2,1x,i4,1x,e10.5,18e10.3,1x,   
+!     &  e10.5, 3e10.3,i6)
+ 1000 format ('BIGSUB,',i4,a1,1x,i8,a1,1x,i4,a1,e10.5,a1,
+     &          18(e10.3,a1),1x,e10.5,a1,3(e10.3,a1),i6)
+ 1001 format('BIGSUB,',i4,a1,1x,i8,a1,1x,i2,a1,1x,i2,a1,1x,
+     &          i4,a1,1x,e10.5,a1,18(e10.3,a1),1x,   
+     &          e10.5,a1, 3(e10.3,a1),i6)
       end 

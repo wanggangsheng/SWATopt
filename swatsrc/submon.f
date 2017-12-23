@@ -89,18 +89,20 @@
             pdvb(ii) = pdvab(ipdvab(ii))
           end do
           IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
-          write (31,1000) sb, subgis(sb), mo_chk, sub_km(sb),           
-     &                                    (pdvb(ii), ii = 1, itotb), sb
+          write (31,1000) sb,',',subgis(sb),',', mo_chk,',',sub_km(sb),           
+     &                           ',', (pdvb(ii),',', ii = 1, itotb), sb
           end if !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         else
           IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
-          write (31,1000) sb, subgis(sb), mo_chk, sub_km(sb),           
-     &                                    (pdvab(ii), ii = 1, msubo), sb
+          write (31,1000) sb,',',subgis(sb),',',mo_chk,',',sub_km(sb),           
+     &                          ',', (pdvab(ii),',', ii = 1, msubo), sb
           end if !!IF(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) THEN !!run SWAT
         end if
       end do
 !!SCE: END
       return
 !1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,21f10.3)
- 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18f10.3,1x,e10.5,3e10.3,i6)
+!! 1000 format ('BIGSUB',i4,1x,i8,1x,i4,e10.5,18f10.3,1x,e10.5,3e10.3,i6)
+ 1000 format ('BIGSUB,',i4,a1,1x,i8,a1,1x,i4,a1,e10.5,a1,18(f10.3,a1),
+     &          1x,e10.5,a1,3(e10.3,a1),i6)
       end 

@@ -90,12 +90,15 @@
 
       
       if (ipdvab(1) > 0) then
-        if (icalen == 0) write (31,1030) (hedb(ipdvab(j)), j = 1, itotb) !!custom printout
-        if (icalen == 1) write (31,1031) (hedb(ipdvab(j)), j = 1, itotb) !! month/day/yr print
+        if (icalen == 0) write (31,1032) (hedb(ipdvab(j)),
+     &                      ',', j = 1, itotb) !!custom printout
+        if (icalen == 1) write (31,1031) (hedb(ipdvab(j)),
+     &                      ',', j = 1, itotb) !! month/day/yr print
       else
-        if (icalen == 0) write (31,1030) (hedb(j), j = 1, msubo)         !!default printout
-        if (icalen == 1) write (31,1031) (hedb(j), j = 1, msubo)         !!month/day/yr print
-1031  format (//6x,' SUB      GIS  MO DA  YR   AREAkm2',22(a10))
+        if (icalen == 0) write (31,1032) (hedb(j),',', j = 1, msubo)         !!default printout
+        if (icalen == 1) write (31,1031) (hedb(j),',', j = 1, msubo)         !!month/day/yr print
+1031  format (//6x,' SUB,     GIS, MO,DA, YR,  AREAkm2,',22(a10,a1))
+1032  format (//6x,' SUB,     GIS, MON,  AREAkm2,',22(a10,a1))
       endif
 
 !! write headings to reach output file (output.rch)
@@ -106,9 +109,12 @@
 
       if (ipdvar(1) > 0) then
         if (iprint /= 3) then
-         if (icalen == 0) write (7,1040) (hedr(ipdvar(j)), j = 1, itotr)  !! daily/monthly output - julian day
-         if (icalen == 1) write (7,1042) (hedr(ipdvar(j)), j = 1, itotr)  !! daily output - calendar day
- 1042 format (//7x,'RCH      GIS  MO DA   YR     AREAkm2',56a12)
+         if (icalen == 0) write (7,1043) (hedr(ipdvar(j)),
+     &                          ',',j = 1, itotr)  !! daily/monthly output - julian day
+         if (icalen == 1) write (7,1042) (hedr(ipdvar(j)),
+     &                          ',',j = 1, itotr)  !! daily output - calendar day
+ 1042 format (//7x,'RCH,     GIS, MO,DA,  YR,    AREAkm2,',56(a12,a1))
+ 1043 format (//7x,'RCH,     GIS,  MON,    AREAkm2,',56(a12,a1))
         
 	  else
 	    write (7,1041) (hedr(ipdvar(j)), j = 1, itotr)  !! subdaily output
