@@ -270,7 +270,7 @@
             if(sGLB%iModel.EQ.0.or.sGLB%iSWAT.LT.0) then !!run SWAT
             if (iyr >= iyres(j)) then
               if (iscen == 1 .and. isproj == 0) then
-              write (8,5800) j, iyr, res_vol(j), resouty(1,j),          
+              write (8,5800) j,iyr, res_vol(j), resouty(1,j),         
      &                       resouty(2,j), resouty(19,j), resouty(17,j),
      &                       resouty(18,j), resouty(3,j), resouty(4,j), 
      &                       resouty(5,j),                              
@@ -353,7 +353,9 @@
  5100 format (1x,a5,a4,1x,i4,4x,1x,250(e16.4,1x))
  5200 format (/,1x,i4,a4,1x,10f12.2)
  5300 format (1x,i4,a4,1x,10f12.2,/)
- 5800 format ('RES   ',i8,1x,i4,41e12.4)
- 6800 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
+! 5800 format ('RES   ',i8,1x,i4,41e12.4)
+! 6800 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
+ 5800 format ('RES,  ',i8,',',1x,i4,',',41(e12.4,','))
+ 6800 format ('RES,  ',i8,',',1x,i4,',',41(e12.4,','),1x,i4)
  6300 format (/i5,15f8.2,1x,5f8.2//)
       end

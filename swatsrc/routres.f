@@ -433,6 +433,8 @@
       endif
       
       return
- 5000 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
- 6000 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
+! 5000 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
+! 6000 format ('RES   ',i8,1x,i4,41e12.4,1x,i4)
+ 5000 format ('RES,  ',i8,',',1x,i4,',',41(e12.4,','),1x,i4)
+ 6000 format ('RES,  ',i8,',',1x,i4,',',41(e12.4,','),1x,i4)
       end

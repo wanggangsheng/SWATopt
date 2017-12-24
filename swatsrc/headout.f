@@ -144,13 +144,13 @@
       write (8,1000) prog, values(2), values(3), values(1), values(5),  
      &               values(6), values(7)
       write (8,1010) title
-      write (8,1050) (hedrsv(j), j = 1, 41)
+      write (8,1050) (hedrsv(j),',', j = 1, 41)
 !! write headings to reservoir output file (output2.rsv)
       if (isproj == 1) then
       write (22,1000) prog, values(2), values(3), values(1), values(5), 
      &               values(6), values(7)
       write (22,1010) title
-      write (22,1050) (hedrsv(j), j = 1, 41)
+      write (22,1050) (hedrsv(j),',', j = 1, 41)
       end if
  
 !! write headings to HRU impoundment output file (output.wtr)
@@ -204,7 +204,8 @@
  1030 format (//6x,' SUB      GIS  MON   AREAkm2',22(a10))
  1040 format (//7x,'RCH      GIS   MON     AREAkm2',56a12)
  1041 format (//7x,'RCH      GIS   DAY   DET     AREAkm2',45a12)    
- 1050 format (//6x,'     RES  MON',41a12)
+! 1050 format (//6x,'     RES  MON',41a12)
+ 1050 format (//6x,'     RES, MON,',41(a12,a1))
  1060 format (//6x,'RCH GIS  MON',26a12)
  2000 format (a12,12x,i4,4x,i4)
  3000 format ("Pesticide loadings to main channel by HRU",/)
