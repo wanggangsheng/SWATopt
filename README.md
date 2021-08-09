@@ -1,7 +1,6 @@
 # SWATopt: Auto-Calibration Tools for SWAT (2012 Rev.627) Model
 # Author: Gangsheng Wang
-# Contact: wanggs@ou.edu
-Institute for Environmental Genomics, University of Oklahoma, 101 David L Boren Blvd, Norman, OK 73019.
+# Contact: wang.gangsheng@gmail.com
 Environmental Sciences Division, Oak Ridge National Laboratory, Oak Ridge Tennessee 37831-6301
 
   We incorporated the Shuffled Complex Evolution (SCE) algorithm (Duan et al., 1992) into the Fortran source code of SWAT2012 (Rev.627) model to implement auto-calibration. SCE is a stochastic optimization algorithm that has been widely used in calibration of hydrological models including SWAT. We can calibrate 39 parameters governing the hydrologic (i.e., water quantity) and water quality processes in SWAT (Wang et al., 2018). The 39 parameters were selected based on the sensitivity analyses in previous studies. 
