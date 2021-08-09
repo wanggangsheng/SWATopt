@@ -7,4 +7,4 @@ Environmental Sciences Division, Oak Ridge National Laboratory, Oak Ridge Tennes
   Fifteen types of calibrations with regard to various response variables were defined in SWATopt. The first five types correspond to five hydrologic response variables: daily streamflow, monthly streamflow, daily reservoir storage, daily soil water content, and monthly runoff on subbasin or HUC8; the next five types include monthly nutrient (sediment, nitrogen, phosphorus) fluxes (metric tons per month); and the last five types refer to instream monthly nutrient concentration (mg/L). Other response variables could also be defined and added to this calibration framework.
 
 # References:
-# Wang G, Jager HI, Baskaran LM, Brandt CC. Hydrologic and water quality responses to biomass production in the Tennessee river basin. GCB Bioenergy. 2018;00:1– 17. https://doi.org/10.1111/gcbb.12537
+# Wang G, Jager HI, Baskaran LM, Brandt CC. Hydrologic and water quality responses to biomass production in the Tennessee river basin. GCB Bioenergy. 2018;10:877–893. https://doi.org/10.1111/gcbb.12537
